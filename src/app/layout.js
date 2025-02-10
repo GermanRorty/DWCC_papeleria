@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import LapizIcon from "@/components/iconos/Lapiz";
 import PencilCaseIcon from "@/components/iconos/PencilCase";
+import AgendaIcon from "@/components/iconos/Agenda"
 
 // TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case
 
@@ -39,7 +40,7 @@ const NavBar = () => {
 				</ul>
 				<div className="w-14 h-auto">
 					<Link href="/">
-						<LapizIcon className="w-12 h-12 text-blue-500" />
+						<AgendaIcon className="w-12 h-12 text-blue-500" />
 					</Link>
 				</div>
 			</div>

@@ -39,6 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Resources: 
 - Icons: https://www.svgrepo.com/collection/office-material-5/
+- Icons : https://www.svgrepo.com/svg/287632/agenda
 
 ## TODO
 - Crear hooks propios
