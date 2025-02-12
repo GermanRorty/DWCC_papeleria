@@ -1,6 +1,6 @@
 // src/lib/services/productos.js
 
-const API_URL = "http://api/productos";
+const API_URL = "http://localhost:3000/api/productos";
 
 export async function getProductos() {
 	try {

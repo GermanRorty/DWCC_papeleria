@@ -19,7 +19,6 @@ export async function GET(request) {
 
 
 export async function PUT(request) {
-    // LESSON: Es lo mismo que hacer const id = request.params.id; Si hubiese más parametros se pueden desestructurar a la vez Ejmp: const { id, name } = request.params;
     const {id} = request.params;
     try {
         const requestBody = await request.json();
@@ -42,7 +41,6 @@ export async function PUT(request) {
 };
 
 export async function DELETE(request) {
-    // LESSON: Es lo mismo que hacer const id = request.params.id; Si hubiese más parametros se pueden desestructurar a la vez Ejmp: const { id, name } = request.params;
     const {id} = request.params;
     try {
         const response = await fetch(`${API_URL}/${id}`,{

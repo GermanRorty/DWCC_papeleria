@@ -27,9 +27,6 @@ const NavBar = () => {
 						</div>
 					</Link>
 				</li>
-				<li className="flex items-center">
-					<Link href="/">LogoInicio</Link>
-				</li>
 			</ul>
 			<div className="flex flex-row gap-9">
 				<ul className="flex flex-row gap-5">
