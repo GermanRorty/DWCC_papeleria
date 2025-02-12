@@ -4,7 +4,9 @@ import "./globals.css";
 import Link from "next/link";
 import LapizIcon from "@/components/iconos/Lapiz";
 import PencilCaseIcon from "@/components/iconos/PencilCase";
-import AgendaIcon from "@/components/iconos/Agenda"
+import AgendaIcon from "@/components/iconos/Agenda";
+import Image from "next/image";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 // TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case
 
@@ -14,14 +16,14 @@ const NavBar = () => {
 			<ul className="flex flex-row gap-5">
 				<li>
 					<Link href="/">
-						<img src="images/InkBottle-logo.svg" className="w-14"></img>
+						<Image alt="Ink logomark" src="images/InkBottle-logo.svg" width={500} height={500} className="w-14"></Image>
 					</Link>
 				</li>
 				<li className="flex items-center">
 					<Link href="/productos" className="flex gap-2 items-center">
 						<div>Productos</div>
 						<div className="w-9 h-auto">
-							<PencilCaseIcon/>
+							<PencilCaseIcon />
 						</div>
 					</Link>
 				</li>
@@ -53,13 +55,16 @@ export const metadata = {
 	description: "Created by German Rodriguez marty",
 };
 
-export default function RootLayout({ children }) {
+const RootLayout = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
 				<NavBar />
+				<Breadcrumbs />
 				{children}
 			</body>
 		</html>
 	);
-}
+};
+
+export default RootLayout;
