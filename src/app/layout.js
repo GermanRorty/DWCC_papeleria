@@ -7,6 +7,7 @@ import PencilCaseIcon from "@/components/iconos/PencilCase";
 import AgendaIcon from "@/components/iconos/Agenda";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import AuthProvider from "@/components/AuthProvider";
 
 // TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case
 
@@ -27,6 +28,14 @@ const NavBar = () => {
 						</div>
 					</Link>
 				</li>
+				<li className="flex items-center">
+					<Link href="/productos/gestion" className="flex gap-2 items-center">
+						<div>Gestión</div>
+						<div className="w-9 h-auto">
+							<PencilCaseIcon />
+						</div>
+					</Link>
+				</li>
 			</ul>
 			<div className="flex flex-row gap-9">
 				<ul className="flex flex-row gap-5">
@@ -38,7 +47,7 @@ const NavBar = () => {
 					</li>
 				</ul>
 				<div className="w-14 h-auto">
-					<Link href="/">
+					<Link href="/auth">
 						<AgendaIcon className="w-12 h-12 text-blue-500" />
 					</Link>
 				</div>
@@ -52,8 +61,11 @@ export const metadata = {
 	description: "Created by German Rodriguez marty",
 };
 
+
+
 const RootLayout = ({ children }) => {
 	return (
+		<AuthProvider>
 		<html lang="en">
 			<body>
 				<NavBar />
@@ -61,6 +73,7 @@ const RootLayout = ({ children }) => {
 				{children}
 			</body>
 		</html>
+		</AuthProvider>
 	);
 };
 
