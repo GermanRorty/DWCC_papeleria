@@ -1,38 +1,94 @@
 {
-    "productos": [
-        { "id": "a1d2f3g4h5",
-          "src": "boligrafo.jpg",
-          "articleId": "001",
-          "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
-          "price": 1.50
-        },
-        {"id": "b2d3e4f5g6",
-          "src": "cuaderno.jpg",
-          "articleId": "002",
-          "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
-          "price": 3.75
-        },
-        {"id": "c3e4f5g6h7",
-          "src": "regla.jpg",
-          "articleId": "003",
-          "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
-          "price": 0.99
-        },
-        {"id": "d4f5g6h7i8",
-          "src": "lapiz.jpg",
-          "articleId": "004",
-          "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
-          "price": 0.60
-        },
-        {"id": "e5g6h7i8j9",
-          "src": "tijeras.jpg",
-          "articleId": "005",
-          "description": "Tijeras de acero inoxidable, con mangos ergonómicos, perfectas para cortar papel.",
-          "price": 2.45
-        }      
-    ],
-    "categorias": [
-        { "id": 1, "nombre": "Agendas"},
-        { "id": 2, "nombre": "Estilográficas"}
-      ]
+  "productos": [
+    {
+      "id": "a1d2f3g4h5",
+      "imageUrl": "boligrafo.jpg",
+      "name": "001",
+      "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
+      "price": 1.5,
+      "amount": 300
+    },
+    {
+      "id": "b2d3e4f5g6",
+      "imageUrl": "cuaderno.jpg",
+      "name": "002",
+      "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
+      "price": 3.75,
+      "amount": 300
+    },
+    {
+      "id": "c3e4f5g6h7",
+      "imageUrl": "regla.jpg",
+      "name": "003",
+      "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
+      "price": 0.99,
+      "amount": 300
+    },
+    {
+      "id": "d4f5g6h7i8",
+      "imageUrl": "lapiz.jpg",
+      "name": "004",
+      "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
+      "price": 0.6,
+      "amount": 300
+    },
+    {
+      "id": "e5g6h7i8j9",
+      "imageUrl": "tijeras.jpg",
+      "name": "005",
+      "description": "Tijeras de acero inoxidable, con mangos ergonómicos, perfectas para cortar papel.",
+      "price": 2.45,
+      "amount": 300
+    },
+    {
+      "name": "ffgewgwe",
+      "price": "345",
+      "amount": "3453453",
+      "description": "efgfweg",
+      "id": "yVerqCm",
+      "imageUrl": "yVerqCm.png"
+    },
+    {
+      "name": "ffgewgwe",
+      "price": "345",
+      "amount": "3453453",
+      "description": "efgfweg",
+      "id": "BRtJwFl",
+      "imageUrl": "BRtJwFl.png"
+    },
+    {
+      "name": "Mochila",
+      "price": "34",
+      "amount": "250",
+      "description": "Negra",
+      "id": "l_cyiMG",
+      "imageUrl": "l_cyiMG.jpg"
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Agendas"
+    },
+    {
+      "id": 2,
+      "nombre": "Estilográficas"
+    }
+  ],
+  "usuarios":[
+    {
+      "id": 1,
+      "name": "Admin",
+      "email":"admin@mail.com",
+      "rol": "admin",
+      "psswrd": "renaido"
+    },
+    {
+      "id": 2,
+      "name": "User",
+      "email":"user@mail.com",
+      "rol": "common-user",
+      "psswrd": "123abc"
+    }
+  ]
 }

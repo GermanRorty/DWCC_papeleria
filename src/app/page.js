@@ -1,4 +1,4 @@
-// PAgina principal de la aplicación
+// Pagina principal de la aplicación
 
 import Image from "next/image";
 
