@@ -43,3 +43,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## TODO
 - Crear hooks propios
+- Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
