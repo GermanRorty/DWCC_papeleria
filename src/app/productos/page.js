@@ -1,6 +1,9 @@
 // app/productos
 "use client";
 
+// TODO: Hacer un loader
+
+
 import Image from "next/image";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getProductos } from "@/lib/services/productos";
@@ -9,15 +12,16 @@ const ProductsListContext = createContext();
 
 // Display
 const Articulo = ({ articleProp }) => {
-	const { src, articleId, description, price } = articleProp;
+	const { imageUrl, name, description, price } = articleProp;
 	return (
 		<div className="">
 			<div>
 				{/* Los archivos en public son accesibles desde la raiz => no hace falta ponerlo*/}
-				<Image src={`/images/products/${src}`} width={75} height={75} alt={"Picture for article ID = " + articleId} />
+				<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + {name}} />
 			</div>
-			<div id="articulo-desc">{price}€</div>
-			<div id="articulo-desc">{description}</div>
+			<div id="articulo-name">{name}€</div>
+			<div id="articulo-price">{price}€</div>
+			<div id="articulo-description">{description}</div>
 		</div>
 	);
 };
@@ -31,13 +35,39 @@ const ProductGrid = () => {
 
 	if (productsList.length === 0) return <div>"No hay artículos para mostrar"</div>;
 	return (
-		<div className="grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+		<div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
 			{productsList.map((chosenArticle) => {
 				return <Articulo articleProp={chosenArticle} key={chosenArticle.id} />;
 			})}
 		</div>
 	);
 };
+
+const Filters = () => {
+	useEffect(() =>{
+		const fetchCategories = async() =>{
+			const products = await getCategories();
+			setProductsList(products);
+		};
+		fetchProducts();
+	},[])
+
+	return(
+		<div>
+			<h2>Filtros</h2>
+			<div>
+				<div>Categoría</div>
+				<div>
+					{categorias.map((cat)=>{
+						return(
+							<div></div>
+						);
+					})}
+				</div>
+			</div>
+		</div>
+	);
+}
 
 const ProductosLayout = () => { 
 	const[productsList, setProductsList] = useState([]);
