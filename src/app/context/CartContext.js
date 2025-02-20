@@ -24,7 +24,7 @@ export const CartContextProvider = ({ children }) => {
 	return (
 		<CartContext.Provider value={{ cart, setCart, displayCart, setDisplayCart }}>
 			{children}
-			<div style={{ display: displayCart ? "block" : "none" }} className="d-flex flex-col position-fixed top-0 right-0">
+			<div className={`flex-col position-fixed top-0 right-0 ${displayCart ? "d-flex" : "d-none"}`}>
 				{cart.map(({ id, name, quantity, imageUrl, price}) => {
 					return (
 						<div key={id}>
