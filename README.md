@@ -52,3 +52,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Revisar el rerenderizado al añadir algo al carrito
 - Que al hacer login, se cargue el carrito desde la bbdd
 - Hacer el navbar a trzos: uno SSR y otro CSR(el del carrito y posiblemente la busqueda)
+- Meter un hook useMem que evite el renderizado de la tienda todo el rato? o un useref que dependa del setProductList.Asi solo se re-renderiza si cambia el stock, etc
