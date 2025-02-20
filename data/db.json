@@ -89,7 +89,35 @@
       "name": "Admin",
       "email": "admin@mail.com",
       "rol": "admin",
-      "cart": {},
+      "cart": [
+        {
+          "name": "sdvas",
+          "price": "234",
+          "amount": "23423423",
+          "description": "avsffva",
+          "id": "kjMy3QU",
+          "imageUrl": "kjMy3QU.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "b2d3e4f5g6",
+          "imageUrl": "cuaderno.jpg",
+          "name": "002",
+          "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
+          "price": 3.75,
+          "amount": 300,
+          "quantity": 1
+        },
+        {
+          "id": "d4f5g6h7i8",
+          "imageUrl": "lapiz.jpg",
+          "name": "004",
+          "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
+          "price": 0.6,
+          "amount": 300,
+          "quantity": 1
+        }
+      ],
       "psswrd": "renaido"
     },
     {
