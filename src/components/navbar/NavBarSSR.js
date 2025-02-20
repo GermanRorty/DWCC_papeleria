@@ -1,8 +1,11 @@
 import Link from "next/link";
 import PencilCaseIcon from "@/components/iconos/PencilCase";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 const NavBarSSR = () => {
+
+
 	return (
 			<ul className="flex flex-row gap-5">
 				<li>
@@ -13,14 +16,6 @@ const NavBarSSR = () => {
 				<li className="flex items-center">
 					<Link href="/productos" className="flex gap-2 items-center">
 						<div>Productos</div>
-						<div className="w-9 h-auto">
-							<PencilCaseIcon />
-						</div>
-					</Link>
-				</li>
-				<li className="flex items-center">
-					<Link href="/productos/gestion" className="flex gap-2 items-center">
-						<div>Gestión</div>
 						<div className="w-9 h-auto">
 							<PencilCaseIcon />
 						</div>
