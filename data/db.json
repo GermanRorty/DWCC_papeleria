@@ -49,20 +49,28 @@
       "imageUrl": "yVerqCm.png"
     },
     {
-      "name": "ffgewgwe",
-      "price": "345",
-      "amount": "3453453",
-      "description": "efgfweg",
-      "id": "BRtJwFl",
-      "imageUrl": "BRtJwFl.png"
-    },
-    {
       "name": "Mochila",
       "price": "34",
       "amount": "250",
       "description": "Negra",
       "id": "l_cyiMG",
       "imageUrl": "l_cyiMG.jpg"
+    },
+    {
+      "name": "sdvas",
+      "price": "234",
+      "amount": "23423423",
+      "description": "avsffva",
+      "id": "kjMy3QU",
+      "imageUrl": "kjMy3QU.jpg"
+    },
+    {
+      "name": "erfge",
+      "price": "345",
+      "amount": "23452345",
+      "description": "gsdgw",
+      "id": "4v-6OGi",
+      "imageUrl": "4v-6OGi.jpg"
     }
   ],
   "categorias": [
@@ -75,19 +83,21 @@
       "nombre": "Estilográficas"
     }
   ],
-  "usuarios":[
+  "usuarios": [
     {
       "id": 1,
       "name": "Admin",
-      "email":"admin@mail.com",
+      "email": "admin@mail.com",
       "rol": "admin",
+      "cart": {},
       "psswrd": "renaido"
     },
     {
       "id": 2,
       "name": "User",
-      "email":"user@mail.com",
+      "email": "user@mail.com",
       "rol": "common-user",
+      "cart": [],
       "psswrd": "123abc"
     }
   ]

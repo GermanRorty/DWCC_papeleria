@@ -44,3 +44,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## TODO
 - Crear hooks propios
 - Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
+- Convertir el formulario en un componente dinámico que se genere en base a los campos que se le especifiquen y que guarde seguun la funcion que le se le pasa
+- setValue en useForm para actulizar los valores del formulario a los de un elemento que ya esxiste y que se muestren en los inputs
+- Llamar a la app Inkubook como incubo
+- Ver si el formulario de edicion y nuevos usuarios es el mismo o no. Porque ahora mismo el de nuevos usuarios siempre asigna un carro vacio
+- usar useRouter por ejemplo para redirigir tras el logout
+- Revisar el rerenderizado al añadir algo al carrito
+- Que al hacer login, se cargue el carrito desde la bbdd
+- Hacer el navbar a trzos: uno SSR y otro CSR(el del carrito y posiblemente la busqueda)
