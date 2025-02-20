@@ -2,9 +2,10 @@
 
 const API_URL = "http://localhost:4000/productos";
 
-export async function GET(request) {
-    // LESSON: Es lo mismo que hacer const id = request.params.id; Si hubiese más parametros se pueden desestructurar a la vez Ejmp: const { id, name } = request.params;
-    const {id} = request.params;
+export async function GET(request, context) {
+    // LESSON: Es lo mismo que hacer const id = params.id; request.params no existe en los manejadores de rutas de Next.js 15+ 
+    const params = await context.params;
+    const {id} = params;
     try {
         const response = await fetch(`${API_URL}/${id}`);
         if(!response.ok) throw new Error(`Error al obtener el producto ID = ${id}`);
@@ -18,8 +19,9 @@ export async function GET(request) {
 };
 
 
-export async function PUT(request) {
-    const {id} = request.params;
+export async function PUT(request,context) {
+    const params = await context.params;
+    const {id} = params;
     try {
         const requestBody = await request.json();
 
@@ -40,8 +42,9 @@ export async function PUT(request) {
     }
 };
 
-export async function DELETE(request) {
-    const {id} = request.params;
+export async function DELETE(request, context) {
+    const params = await context.params;
+    const {id} = params;
     try {
         const response = await fetch(`${API_URL}/${id}`,{
             method:'DELETE',
