@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useCartContext } from "../context/CartContext";
 import { useEffect, useRef } from "react";
 
-export default function Home() {
+export default function AuthComponent() {
 	const { status, data: session } = useSession(); // Desestructura y renombra: data->session
 	const { cart, setCart } = useCartContext();
 
@@ -47,19 +47,25 @@ export default function Home() {
 	}, [session]);
 
 	return (
-		<div>
+		<>
 			{session ? (
-				<>
-					<p>Bienvenido, {session.user.name}!</p>
-					<button onClick={logoutProcess}>Cerrar sesión</button>
-				</>
+				<li>
+					<button className="dropdown-item" onClick={logoutProcess}>Cerrar sesión</button>
+				</li>
 			) : (
-				<div>
-					<button onClick={loginProcess}>Iniciar sesión</button>
-					<Link href="/usuarios/gestion">Registrarse</Link>
-				</div>
+				<>
+					<li>
+						<button className="dropdown-item" onClick={loginProcess}>Iniciar sesión</button>
+					</li>
+					<li>
+						<Link className="dropdown-item" href="/usuarios/gestion">Registrarse</Link>
+					</li>
+				</>
 			)}
-		</div>
+			<li>
+				<Link className="dropdown-item" href="#">Ajustes</Link>
+			</li>
+		</>
 	);
 }
 
