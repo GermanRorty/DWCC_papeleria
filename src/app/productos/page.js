@@ -21,7 +21,7 @@ const Articulo = ({ articleProp }) => {
 				{/* Los archivos en public son accesibles desde la raiz => no hace falta ponerlo*/}
 				<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + {name}} />
 			</div>
-			<div id="articulo-name">{name}€</div>
+			<div id="articulo-name">{name}</div>
 			<div id="articulo-price">{price}€</div>
 			<div id="articulo-description">{description}</div>
 			{console.log("Id para el boton",id)}

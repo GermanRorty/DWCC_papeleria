@@ -1,7 +1,7 @@
 // Template de elementos comunes a todas las páginas (navba, header, footer, etc )
 
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importa el CSS de Bootstrap globalmente
+import "bootstrap/dist/css/bootstrap.min.css"; // Importa el CSS de Bootstrap globalmente
 import Breadcrumbs from "@/components/Breadcrumbs";
 import AuthProvider from "@/components/AuthProvider";
 import { CartContextProvider, useCartContext } from "./context/CartContext";
@@ -21,8 +21,12 @@ const RootLayout = ({ children }) => {
 				<AuthProvider>
 					<CartContextProvider>
 						<NavBarAncestor />
-						<Breadcrumbs />
-						{children}
+						<div className="mt-28">
+							<Breadcrumbs />
+
+							{children}
+							{/* TODO: poner aqui el componente  */}
+						</div>
 					</CartContextProvider>
 				</AuthProvider>
 			</body>

@@ -10,6 +10,7 @@
     "json-server": "json-server --watch data/db.json --port 4000"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "next": "15.1.6",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",

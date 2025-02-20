@@ -8,9 +8,9 @@ import NavBarCSR from "./NavBarCSR";
 
 const NavBarAncestor = () => {
 	return (
-		<nav className="flex flex-row gap-5 justify-between p-6 bg-black">
-			<NavBarSSR/>
-            <NavBarCSR/>
+		<nav className="w-100 position-fixed z-3 top-0 flex flex-row gap-5 justify-between p-6 bg-black">
+			<NavBarSSR />
+			<NavBarCSR />
 		</nav>
 	);
 };
