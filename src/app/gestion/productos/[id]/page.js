@@ -2,6 +2,7 @@
 
 "use client";
 
+import { useProductsListContext } from "@/app/context/ProductsContext";
 import DropEntityFromDBButton from "@/components/DropEntityFromDBButton";
 import DynamicForm from "@/components/DynamicForm";
 import { editProductFromDatabase, getProducto, saveProductToDatabase, uploadProductImgFs } from "@/lib/services/productos";
@@ -56,7 +57,7 @@ const productFields = [
 				// TODO: REvisar aviso de errores, porque no se están mostrando al superar el peso o elegir otro tipo de archivo
 				key: "validate",
 				value: (fileList) => {
-					if (fileList?.length){
+					if (fileList?.length) {
 						const file = fileList[0];
 						if (!file.type.startsWith("image/")) return "Sólo se permiten imágenes.";
 						if (file.size > 1024 * 1024 * 6) return "La imagen no puede pesar más de 6 MB.";
@@ -69,11 +70,19 @@ const productFields = [
 	},
 ];
 
-const ProductManagementForm = ({productData, setFunction}) => {
+const ProductManagementForm = ({ productData, setFunction }) => {
+	const { edicionHecha, setEdicionHecha } = useProductsListContext();
+
 	const submitForm = async (data) => {
 		try {
-			// Enviar datos del producto a la API (sin imagen)
-			const dataWithId ={...data, id: productData.id, imageUrl: productData.imageUrl}
+			// Enviar datos del producto a la API (sin imagen). Debemos convertir explicitamente en numeros los campos, porque al editar los apsa a string
+			const dataWithId = {
+				...data,
+				id: productData.id,
+				imageUrl: productData.imageUrl,
+				price: Number(data.price),
+				amount: Number(data.amount),
+			};
 			const productId = await editProductFromDatabase(dataWithId); // Este data es un objeto normal con la informacion del formulario
 
 			// Subir la imagen con el productId
@@ -84,7 +93,7 @@ const ProductManagementForm = ({productData, setFunction}) => {
 			}
 
 			setFunction(dataWithId);
-
+			setEdicionHecha(true);
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -112,11 +121,10 @@ const ProductManagement = () => {
 			setProduct(productFound);
 		};
 		fetchProduct();
-	}, [id, ]);
+	}, [id]);
 
 	if (!product) {
 		return <div>Loading...</div>; //  O cualquier otro indicador de carga
-
 	}
 
 	return (
@@ -124,7 +132,7 @@ const ProductManagement = () => {
 			<div className="d-flex gap-6">
 				<Image alt="product picture" src={`/images/products/${product.imageUrl}`} width={500} height={500}></Image>
 				<div className="d-flex align-items-center gap-20">
-					<ProductManagementForm productData={product} setFunction={setProduct}/>
+					<ProductManagementForm productData={product} setFunction={setProduct} />
 					<div>
 						<DropEntityFromDBButton entityId={product.id} entityClass={"product"}></DropEntityFromDBButton>
 					</div>
