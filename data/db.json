@@ -3,10 +3,11 @@
     {
       "id": "a1d2f3g4h5",
       "imageUrl": "boligrafo.jpg",
-      "name": "001",
+      "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
-      "price": 1.5,
-      "amount": 300
+      "price": "1.7",
+      "amount": "296",
+      "categoryId": 5
     },
     {
       "id": "b2d3e4f5g6",
@@ -14,7 +15,8 @@
       "name": "002",
       "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
       "price": 3.75,
-      "amount": 300
+      "amount": 0,
+      "categoryId": 7
     },
     {
       "id": "c3e4f5g6h7",
@@ -22,7 +24,8 @@
       "name": "003",
       "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
       "price": 0.99,
-      "amount": 300
+      "amount": 214,
+      "categoryId": 5
     },
     {
       "id": "d4f5g6h7i8",
@@ -30,7 +33,8 @@
       "name": "004",
       "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
       "price": 0.6,
-      "amount": 300
+      "amount": 298,
+      "categoryId": 9
     },
     {
       "id": "e5g6h7i8j9",
@@ -38,31 +42,35 @@
       "name": "005",
       "description": "Tijeras de acero inoxidable, con mangos ergonómicos, perfectas para cortar papel.",
       "price": 2.45,
-      "amount": 300
+      "amount": 287,
+      "categoryId": 5
     },
     {
       "name": "ffgewgwe",
       "price": "345",
-      "amount": "3453453",
+      "amount": 345,
       "description": "efgfweg",
       "id": "yVerqCm",
-      "imageUrl": "yVerqCm.png"
+      "imageUrl": "yVerqCm.png",
+      "categoryId": 5
     },
     {
       "name": "Mochila",
       "price": "34",
-      "amount": "250",
+      "amount": 249,
       "description": "Negra",
       "id": "l_cyiMG",
-      "imageUrl": "l_cyiMG.jpg"
+      "imageUrl": "l_cyiMG.jpg",
+      "categoryId": 3
     },
     {
       "name": "sdvas",
       "price": "234",
-      "amount": "23423423",
+      "amount": 23423420,
       "description": "avsffva",
       "id": "kjMy3QU",
-      "imageUrl": "kjMy3QU.jpg"
+      "imageUrl": "kjMy3QU.jpg",
+      "categoryId": 5
     },
     {
       "name": "erfge",
@@ -70,7 +78,8 @@
       "amount": "23452345",
       "description": "gsdgw",
       "id": "4v-6OGi",
-      "imageUrl": "4v-6OGi.jpg"
+      "imageUrl": "4v-6OGi.jpg",
+      "categoryId": 5
     }
   ],
   "categorias": [
@@ -81,6 +90,38 @@
     {
       "id": 2,
       "nombre": "Estilográficas"
+    },
+    {
+      "id": 3,
+      "nombre": "Mochilas"
+    },
+    {
+      "id": 4,
+      "nombre": "Estuches"
+    },
+    {
+      "id": 5,
+      "nombre": "Bolígrafos"
+    },
+    {
+      "id": 6,
+      "nombre": "Rotuladores"
+    },
+    {
+      "id": 7,
+      "nombre": "Libretas"
+    },
+    {
+      "id": 8,
+      "nombre": "Portaminas"
+    },
+    {
+      "id": 9,
+      "nombre": "Lápices"
+    },
+    {
+      "id": 10,
+      "nombre": "Pintura"
     }
   ],
   "usuarios": [
