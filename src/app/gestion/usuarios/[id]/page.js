@@ -3,9 +3,10 @@
 "use client";
 
 import DynamicForm from "@/components/DynamicForm";
-import { addNewUser } from "@/lib/services/users";
+import { addNewUser, editUser, getUser } from "@/lib/services/users";
 import { useSession } from "next-auth/react";
-import { useContext } from "react";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const userFields = [
 	{
@@ -54,14 +55,15 @@ const userFields = [
 
 ];
 
-const UserManagementForm = () => {
+const UserManagementForm = ({userData, setFunction}) => {
 	const{data:session, status} = useSession();
 	
 	const submitForm = async (data) => {
 		try {
-			data.cart = [];
-			const userAdded = await addNewUser(data); // Este data es un objeto normal con la informacion del formulario
-			console.log("Usuario guardado:", userAdded);
+			const dataWithIdCart ={...data, id: userData.id, cart: userData.cart}
+			const userEdited = await editUser(dataWithIdCart); // Este data es un objeto normal con la informacion del formulario
+			console.log("Usuario editado:", userEdited);
+			setFunction(dataWithIdCart);
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -70,14 +72,24 @@ const UserManagementForm = () => {
 		<div className="d-flex flex-col justify-content-center align-items-center pt-10">
 			<h5 className="w-50">Datos del usuario</h5>
             <div className="w-50 pt-3">
-			    <DynamicForm attributes={userFields} submitFunction={submitForm}/>
+			    <DynamicForm attributes={userFields} submitFunction={submitForm} formItemData={userData}/>
             </div>
 		</div>
 	);
 };
 
 const UserManagement = () => {
-	return <UserManagementForm />;
+	const { id } = useParams();
+	const [userRetrieved, setUserRetrieved] = useState(null);
+
+	useEffect(() => {
+			const fetchProduct = async () => {
+				const userFound = await getUser(id);
+				setUserRetrieved(userFound);
+			};
+			fetchProduct();
+		}, [id]);
+	return <UserManagementForm userData={userRetrieved} setFunction={setUserRetrieved}/>;
 };
 
 export default UserManagement;
