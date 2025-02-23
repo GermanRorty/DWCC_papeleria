@@ -72,10 +72,9 @@ const NavBarCSR = () => {
 				/>
 				<li className="flex items-center">
 					<Image alt="magnifying glass logomark" src="/images/magnifyinglass.svg" width={500} height={500} className="w-10"></Image>
-					<Link href={"/gestion/productos/a1d2f3g4h5"}>Link usuario</Link>
  				</li>
 				<li className="d-flex flex-col items-center">
-					<div className="position-absolute -translate-y-6  py-0 my-0 h-0.5">{cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
+					<div className="position-absolute -translate-y-6  py-0 my-0 h-0.5">{typeof cart[0]!="string" && cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
 					<button onClick={handleDisplayCart}>
 						<Image alt="old backpack logomark" src="/images/oldbackpack.svg" width={500} height={500} className="w-12"></Image>
 					</button>
