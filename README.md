@@ -42,11 +42,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Icons : https://www.svgrepo.com/svg/287632/agenda
 
 ## TODO
-- Crear hooks propios
 - Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
-- Convertir el formulario en un componente dinámico que se genere en base a los campos que se le especifiquen y que guarde seguun la funcion que le se le pasa
-- setValue en useForm para actulizar los valores del formulario a los de un elemento que ya esxiste y que se muestren en los inputs
-- Llamar a la app Inkubook como incubo
+
+
 - Ver si el formulario de edicion y nuevos usuarios es el mismo o no. Porque ahora mismo el de nuevos usuarios siempre asigna un carro vacio
 - usar useRouter por ejemplo para redirigir tras el logout
 - Revisar el rerenderizado al añadir algo al carrito
@@ -54,3 +52,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Hacer el navbar a trzos: uno SSR y otro CSR(el del carrito y posiblemente la busqueda)
 - Meter un hook useMem que evite el renderizado de la tienda todo el rato? o un useref que dependa del setProductList.Asi solo se re-renderiza si cambia el stock, etc
 - Redirigir a productos/inicio tras login
+- Usar los Componentes iconos para los paneles de gestion
+- Usar una foto de edna moda en los formularios dinámicos
+- Revisar que el carro localstorage se actualiza bien al inicar sesión. Ahora si funciona, pero al recargar la pagina con la sesion abiertta sigue resumandolo al carro
+- Los empleados pueden editar los productois pero no a los usuarios -> eso solo el admin
+- Añadir el 404
+- Revisar que alc errar la ventana y abrir con la cuenta abierta, también se suman sin limite la cesta
