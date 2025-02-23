@@ -2,75 +2,50 @@
 
 "use client";
 
-import DynamicForm from "@/components/DynamicForm";
-import { addNewUser } from "@/lib/services/users";
-import { useContext } from "react";
+import { getAllUsers } from "@/lib/services/users";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const userFields = [
-	{
-		name: "name",
-		label: "Nombre",
-		type: "text",
-		validators: [
-			{ key: "required", value: true, errmssg: "El nombre es obligatorio" },
-			{ key: "maxLength", value: 256, errmssg: "Máximo 256 caracteres" },
-		],
-	},
-	{
-		name: "email",
-		label: "Email",
-		type: "email",
-		validators: [
-			{ key: "required", value: true, errmssg: "El email es obligatorio" },
-			{ key: "min", value: 1, errmssg: "El precio debe ser mayor a 0" },
-		],
-	},
-	{
-		name: "psswrd",
-		label: "Contraseña",
-		type: "password",
-		validators: [
-			{ key: "required", value: true, errmssg: "El stock es obligatorio" },
-			{ key: "min", value: 0, errmssg: "El stock no puede ser negativo" },
-		],
-	},
-	{
-		name: "rol",
-		label: "Rol",
-		type: "select",
-        options:[
-            {value:"admin", text:"Administrador"},
-            {value:"common-user", text:"Usuario"},
-            {value:"employee", text:"Empleado"}
-        ],
-		validators: [
-			{ key: "required", value: true, errmssg: "La descripción es obligatoria" },
-			{ key: "maxLength", value: 1024, errmssg: "Máximo 1024 caracteres" },
-		],
-	},
+const UserPanel = ({ user }) => {
 
-];
+	return(
+		<Link href={`/gestion/usuarios/${user.id}`} className=" btn border rounded d-flex flex-col align-items-center p-4 shadow">
+			{user.rol === "admin" && <Image src={"/images/users_rols/admin-icon.svg"} width={100} height={100} alt={"admin icon"}></Image>}
+			{user.rol != "admin" && <Image src={"/images/users_rols/common-user-icon.svg"} width={100} height={100} alt={"admin icon"}></Image>}
+			<div className="mt-3">
+				<div >ID: {user.id}</div>
+				<div >Nombre: {user.name}</div>
+				<div >Email: {user.email}</div>
+			</div>
+		</Link>
+	);
+};
 
-const UserManagementForm = () => {
-	const submitForm = async (data) => {
-		try {
-			data.cart = [];
-			const userAdded = await addNewUser(data); // Este data es un objeto normal con la informacion del formulario
-			console.log("Usuario guardado:", userAdded);
-		} catch (error) {
-			console.error("Error:", error);
-		}
-	};
+const UsersGrid = ({users}) => {
+	if (!users) return <div>Loading...</div>;
+
 	return (
-		<div>
-			<h5>Datos del usuario</h5>
-			<DynamicForm attributes={userFields} submitFunction={submitForm}/>
+		<div className="grid grid-cols-5 gap-5 m-5">
+			{users.map((u) => {
+				return <UserPanel key={u.id} user={u}></UserPanel>;
+			})}
 		</div>
 	);
 };
 
-const UserManagement = () => {
-	return <UserManagementForm />;
+const UsersLayout = () => {
+	const [usersList, setUsersList] = useState([]);
+
+	useEffect(() => {
+		const fetchUsers = async () => {
+			const users = await getAllUsers();
+			setUsersList(users);
+		};
+		fetchUsers();
+	}, []);
+
+	return <UsersGrid users={usersList}></UsersGrid>;
 };
 
-export default UserManagement;
+export default UsersLayout;
