@@ -6,9 +6,15 @@ import { useSession } from "next-auth/react";
 import AuthComponent from "@/app/auth/page";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const GestionDropdown = ({ session, aria, onEntering, onLeaving }) => {
 	useEffect(() => {}, [session]);
+	const router = useRouter();
+
+	const redirectToManagement = ()=>{
+		router.push("/gestion");
+	}
 
 	if (session?.user.rol != "admin") return null;
 	return (
@@ -19,8 +25,9 @@ const GestionDropdown = ({ session, aria, onEntering, onLeaving }) => {
 				id="mngmntDropdownButton"
 				data-bs-toggle="dropdown"
 				aria-expanded={aria ? "true" : "false"}
+				onClick={redirectToManagement}
 			>
-				<Image alt="agenda logomark" src="images/agendaicon.svg" width={500} height={500} className="w-14"></Image>
+				<Image alt="agenda logomark" src="/images/agendaicon.svg" width={500} height={500} className="w-14"></Image>
 			</button>
 
 			<ul className={`dropdown-menu ${aria ? "show" : ""}`} aria-labelledby="mngmntDropdownButton">
@@ -64,13 +71,13 @@ const NavBarCSR = () => {
 					onLeaving={() => setisMagmntMenuDown(false)}
 				/>
 				<li className="flex items-center">
-					<Image alt="magnifying glass logomark" src="images/magnifyinglass.svg" width={500} height={500} className="w-10"></Image>
+					<Image alt="magnifying glass logomark" src="/images/magnifyinglass.svg" width={500} height={500} className="w-10"></Image>
 					<Link href={"/gestion/productos/a1d2f3g4h5"}>Link usuario</Link>
  				</li>
-				<li className="flex items-center">
-					{cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}
+				<li className="d-flex flex-col items-center">
+					<div className="position-absolute -translate-y-6  py-0 my-0 h-0.5">{cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
 					<button onClick={handleDisplayCart}>
-						<Image alt="old backpack logomark" src="images/oldbackpack.svg" width={500} height={500} className="w-12"></Image>
+						<Image alt="old backpack logomark" src="/images/oldbackpack.svg" width={500} height={500} className="w-12"></Image>
 					</button>
 				</li>
 			
@@ -88,7 +95,7 @@ const NavBarCSR = () => {
 					aria-expanded={isSignMenuDown ? "true" : "false"}
 					onClick={toggleDropdown}
 				>
-					<Image alt="Ink logomark" src="images/idcardicon.svg" width={500} height={500} className="w-14"></Image>
+					<Image alt="Ink logomark" src="/images/idcardicon.svg" width={500} height={500} className="w-14"></Image>
 				</button>
 				<ul className={`dropdown-menu ${isSignMenuDown ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
 					<div className={`${isSignMenuDown?"d-block":"d-none"}`}>
