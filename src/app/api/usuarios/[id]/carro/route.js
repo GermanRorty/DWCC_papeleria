@@ -10,8 +10,8 @@ export async function PATCH(request, context) {
 
 	try {
 		const cart = await request.json();
-		// DEBUG::
-		console.log("Cart es un ARRAY?", Array.isArray(cart));
+		// // DEBUG::
+		// console.log("Cart es un ARRAY?", Array.isArray(cart));
 		const response = await fetch(`${API_URL}/${id}`, {
 			method: "PATCH",
 			headers: { "Content-Type": "application/json" },
@@ -22,7 +22,7 @@ export async function PATCH(request, context) {
 		const editedUser = await response.json();
 		return new Response(JSON.stringify(editedUser), { status: 201 });
 	} catch (error) {
-		console.error("Error en PATCH /usuario", error);
-		return new Response("Error al obtener el usuario", { status: 500 });
+		console.error("Error en PATCH /usuario/carro", error);
+		return new Response("Error al obtener el usuario -> carro", { status: 500 });
 	}
 }

@@ -6,8 +6,8 @@ const API_USER_URL = "http://localhost:3000/api/usuarios";
 
 export async function syncUserCartToDB(userId, cart){
 	try {
-        // DEBUG:
-        console.log("Carro antes de sincronizar", cart);
+        // // DEBUG:
+        // console.log("Carro antes de sincronizar", cart);
         const cartResponse = await fetch(`${API_USER_URL}/${userId}/carro`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
