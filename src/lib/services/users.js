@@ -24,3 +24,19 @@ export async function addNewUser(data){
     }
 }
 
+export async function deleteUser(id) {
+    try {
+        const response = await fetch(`${API_URL_USER}/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json", // Indicamos que el contenido es JSON
+            },
+        });
+        if (!response.ok) throw new Error(`Error al borrar el usuario ID=${id}`);
+        return await response.json();
+    } catch (error) {
+        console.log(`Error en función deleteUser(${id})`, error);
+        return [];
+    }
+}
+
