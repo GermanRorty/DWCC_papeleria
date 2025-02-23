@@ -42,6 +42,30 @@ export async function PUT(request,context) {
     }
 };
 
+// Peticion http para modificar el carrito del usuario
+export async function PATCH(request, context) {
+    const params = await context.params; // En las Api Routes params tiene que estar disponible (hay que esperar)
+    const { id } = params;
+
+    try {
+        // DEBUG 
+        console.log("ID para el edit desde capa API: ",id);
+        const data = await request.json();
+        const response = await fetch(`${API_URL}/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) throw new Error("Error al editar el producto");
+        const editedProduct = await response.json();
+        return new Response(JSON.stringify(editedProduct), { status: 201 });
+    } catch (error) {
+        console.error("Error en PATCH /producto", error);
+        return new Response("Error al obtener el producto", { status: 500 });
+    }
+};
+
 export async function DELETE(request, context) {
     const params = await context.params;
     const {id} = params;
