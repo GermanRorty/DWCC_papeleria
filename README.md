@@ -45,7 +45,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
 
 
-- Ver si el formulario de edicion y nuevos usuarios es el mismo o no. Porque ahora mismo el de nuevos usuarios siempre asigna un carro vacio
 - usar useRouter por ejemplo para redirigir tras el logout
 - Revisar el rerenderizado al añadir algo al carrito
 - Que al hacer login, se cargue el carrito desde la bbdd
@@ -58,3 +57,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Los empleados pueden editar los productois pero no a los usuarios -> eso solo el admin
 - Añadir el 404
 - Revisar que alc errar la ventana y abrir con la cuenta abierta, también se suman sin limite la cesta
+- ñadir mensajes de confirmación de edición y crecaión

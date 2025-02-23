@@ -5,8 +5,8 @@
       "imageUrl": "boligrafo.jpg",
       "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
-      "price": "1.7",
-      "amount": "296",
+      "price": 1.8,
+      "amount": 295,
       "categoryId": 5
     },
     {
@@ -14,7 +14,7 @@
       "imageUrl": "cuaderno.jpg",
       "name": "002",
       "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
-      "price": 3.75,
+      "price": 3.15,
       "amount": 0,
       "categoryId": 7
     },
@@ -24,7 +24,7 @@
       "name": "003",
       "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
       "price": 0.99,
-      "amount": 214,
+      "amount": 192,
       "categoryId": 5
     },
     {
@@ -42,13 +42,13 @@
       "name": "005",
       "description": "Tijeras de acero inoxidable, con mangos ergonómicos, perfectas para cortar papel.",
       "price": 2.45,
-      "amount": 287,
+      "amount": 274,
       "categoryId": 5
     },
     {
       "name": "ffgewgwe",
       "price": "345",
-      "amount": 345,
+      "amount": 337,
       "description": "efgfweg",
       "id": "yVerqCm",
       "imageUrl": "yVerqCm.png",
@@ -130,7 +130,18 @@
       "name": "Admin",
       "email": "admin@mail.com",
       "rol": "admin",
-      "cart": [],
+      "cart": [
+        {
+          "id": "c3e4f5g6h7",
+          "imageUrl": "regla.jpg",
+          "name": "003",
+          "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
+          "price": 0.99,
+          "amount": 192,
+          "categoryId": 5,
+          "quantity": 9
+        }
+      ],
       "psswrd": "renaido"
     },
     {
@@ -139,7 +150,7 @@
       "email": "user@mail.com",
       "rol": "common-user",
       "cart": [],
-      "psswrd": "123abc"
+      "psswrd": "123"
     }
   ]
 }

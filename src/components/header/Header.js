@@ -15,7 +15,7 @@ const Header = () => {
 		<header
 			className={`w-100 mt-2 fixed top-0 z-3 shadow-md -translate-y-2 d-flex flex-col align-items-center ${
 				scrollingY ? "h-24" : "h-60"
-			} transition-all ease-linear duration-100`} style={{backgroundColor: "rgba(229, 216, 165, 1)"}}
+			} transition-all ease-linear duration-100`} style={{backgroundColor: "rgba(230, 219, 193, 1)"}}
 		>
 			<div className="d-flex justify-center">
 				<Image
