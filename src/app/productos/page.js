@@ -1,98 +1,84 @@
 // app/productos
 "use client";
 
-// TODO: Hacer un loader
-
 
 import Image from "next/image";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getProductos } from "@/lib/services/productos";
 import { useCartContext } from "../context/CartContext";
 import CartAddButton from "@/components/CartAddButton";
+import { getCategories } from "@/lib/services/categorias";
+import { useProductsListContext } from "../context/ProductsContext";
+import Filters from "@/components/Filters";
 
-const ProductsListContext = createContext();
+const FilteredProductsContext = createContext();
 
 // Display
 const Articulo = ({ articleProp }) => {
-	const { imageUrl, name, description, price, id} = articleProp;
+	const { imageUrl, name, description, price, id } = articleProp;
 	return (
-		<div className="">
-			<div>
+		<div className="shadow rounded m-3 p-3 d-flex w-auto" style={articleProp.amount === 0?{filter: 'grayscale(100%)'}:{}}>
+			<div className=" justify-center">
 				{/* Los archivos en public son accesibles desde la raiz => no hace falta ponerlo*/}
-				<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + {name}} />
+				<Image src={`/images/products/${imageUrl}`} width={200} height={200} alt={"Picture for article" + { name }} />
 			</div>
-			<div id="articulo-name">{name}</div>
-			<div id="articulo-price">{price}€</div>
-			<div id="articulo-description">{description}</div>
-			{console.log("Id para el boton",id)}
-			<CartAddButton product={articleProp}/>
+			<div className="p-2 w-full">
+				<div className="d-flex justify-between p-2">
+					<div>
+						<div id="articulo-name">{name}</div>
+						<div id="articulo-price">{price}€</div>
+					</div>
+					<div >
+						<CartAddButton product={articleProp} />
+					</div>
+				</div>
+
+				<div id="articulo-description" className="border-top p-2 m-1 w-full">
+					{description}
+				</div>
+			</div>
 		</div>
 	);
 };
 
-const ProductGrid = () => {
-	const {productsList, setProductsList} = useContext(ProductsListContext);
+const ProductGrid = ({filteredList}) => {
+	const { productsList, setProductsList } = useProductsListContext();
 
 	useEffect(() => {
-		// TODO: si de un articulo no quedan existencias que salga en gris 
-		console.log("Actualización de lista de productos.");
-	}, [productsList]);
+		// TODO: si de un articulo no quedan existencias que salga en gris
+		// // DEBUG:
+		// console.log("Actualización de lista de productos.");
+	}, [filteredList]);
 
-	if (productsList.length === 0) return <div>"No hay artículos para mostrar"</div>;
+	if (filteredList.length === 0) return <div className="w-full">"No hay artículos para mostrar"</div>;
 	return (
-		<div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-			{productsList.map((chosenArticle) => {
+		<div className="w-full grid grid-cols-3">
+			{filteredList.map((chosenArticle) => {
 				return <Articulo articleProp={chosenArticle} key={chosenArticle.id} />;
 			})}
 		</div>
 	);
 };
 
-// const Filters = () => {
-// 	useEffect(() =>{
-// 		const fetchCategories = async() =>{
-// 			const products = await getCategories();
-// 			setProductsList(products);
-// 		};
-// 		fetchProducts();
-// 	},[])
 
-// 	return(
-// 		<div>
-// 			<h2>Filtros</h2>
-// 			<div>
-// 				<div>Categoría</div>
-// 				<div>
-// 					{categorias.map((cat)=>{
-// 						return(
-// 							<div></div>
-// 						);
-// 					})}
-// 				</div>
-// 			</div>
-// 		</div>
-// 	);
-// }
+const ProductosLayout = () => {
+	const { productsList, setProductsList } = useProductsListContext();
+	const [filteredProducts, setFilteredProducts] = useState([]);
+	const [filterApplied, setFilterApplied] = useState(false);
 
-const ProductosLayout = () => { 
-	const[productsList, setProductsList] = useState([]);
-
-	useEffect(() =>{
-		console.log("ME MONTO UNA VEZ")
-		const fetchProducts = async() =>{
-			const products = await getProductos();
-			setProductsList(products);
-		};
-		fetchProducts();
-	},[])
+	useEffect(()=>{
+		if(!filterApplied) {
+			setFilteredProducts(productsList);
+		}
+	},[filterApplied, productsList])
 
 	return (
-		<ProductsListContext.Provider value={{productsList, setProductsList}}>
+		<FilteredProductsContext.Provider value={(filteredProducts, setFilteredProducts, filterApplied, setFilterApplied)}>
 			<div className="flex flex-row">
-				{/* // <Filter> */}
-				<ProductGrid />
+				<ProductGrid filteredList={filteredProducts}/>
+				<Filters fullProductsList={productsList} setFilteredList={setFilteredProducts} setFilterApplied={setFilterApplied}></Filters>
 			</div>
-		</ProductsListContext.Provider>
+		</FilteredProductsContext.Provider>
 	);
 };
 
