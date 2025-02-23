@@ -1,16 +1,27 @@
 // app/components/DynamicForm.js
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const DynamicForm = ({ attributes, submitFunction }) => {
+const DynamicForm = ({ formItemData, attributes, submitFunction }) => {
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm();
 
+	useEffect(()=>{
+		if(formItemData){
+			// Esto nos obliga a que cada campo del objeto coincida con su análogo en el id del html. Como el formulario lo construimos dinamicamente, deberia coincidir
+			attributes.forEach(({name}) => {
+				setValue(name, formItemData[name])
+			});
+		}
+	});
+
 	return (
-		<form onSubmit={handleSubmit(submitFunction)}>
+		<form className="d-flex flex-col gap-3" onSubmit={handleSubmit(submitFunction)} >
 			{/* Aunque no exista el atributo options no pasa nada. Se desestructura y se inicializa con undefined. Despues no se llega a ejecutar si no es un select  */}
 			{attributes.map(({ name, label, type, validators, options }) => { 
 				const validationRules = validators.reduce((rules, { key, value }) => {
@@ -21,8 +32,8 @@ const DynamicForm = ({ attributes, submitFunction }) => {
 				if (type === "select") {
 					return (
 						<div key={name}>
-							<label htmlFor={name}>{label}:</label>
-							<select name={name} id={name} {...register(name, validationRules)}>
+							<label className="form-label" htmlFor={name}>{label}:</label>
+							<select  className="form-select" name={name} id={name} {...register(name, validationRules)}>
 								{options.map(({value, text})=>{
 									return(
 										<option key={value} value={value}>{text}</option>
@@ -44,7 +55,7 @@ const DynamicForm = ({ attributes, submitFunction }) => {
 				return (
 					<div key={name}>
 						<label htmlFor={name}>{label}:</label>
-						<input className="text-black" type={type} id={name} {...register(name, validationRules)} />
+						<input className="text-black form-control" type={type} id={name} {...register(name, validationRules)} />
 						{validators.map(
 							({ key, errmssg }) =>
 								errors[name]?.type === key && (
@@ -56,14 +67,14 @@ const DynamicForm = ({ attributes, submitFunction }) => {
 					</div>
 				);
 			})}
-			<input type="submit" />
+			<input type="submit" value="Guardar" className="btn btn-primary"/>
 		</form>
 	);
 };
 
 export default DynamicForm;
 
-// Ejemplo de validator
+// Ejemplo de varibales de estructura
 // const productFields = [
 //     {
 //       name: "name",
