@@ -21,9 +21,9 @@ const CartAddButton = ({ product, quantity = 1 }) => {
 	};
 
 	return (
-		<button className="btn shadow" style={{ backgroundColor: "rgba(229, 216, 165, 1)" }} onClick={() => addToCart(chosenArticle, quantity)}>
+		<button className={`btn shadow ${product.amount === 0?"btn-secondary border-0":""}`} style={{ backgroundColor: "rgba(229, 216, 165, 1)" }} onClick={() => addToCart(chosenArticle, quantity)} disabled={product.amount === 0}>
 			{" "}
-			<Image alt="add to cart-backpack icon" src="images/addtobackpack.svg" width={500} height={500} className="w-5 h-6"></Image>
+			<Image alt="add to cart-backpack icon" src="/images/addtobackpack.svg" width={500} height={500} className="w-5 h-6"></Image>
 		</button>
 	);
 };
