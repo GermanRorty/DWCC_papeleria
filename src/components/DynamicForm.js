@@ -3,7 +3,9 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const DynamicForm = ({ formItemData, attributes, submitFunction }) => {
+
+
+const DynamicForm = ({ formItemData, attributes, submitFunction, session }) => {
 	const {
 		register,
 		handleSubmit,
@@ -11,19 +13,26 @@ const DynamicForm = ({ formItemData, attributes, submitFunction }) => {
 		formState: { errors },
 	} = useForm();
 
-	useEffect(()=>{
-		if(formItemData){
+	useEffect(() => {
+		if (formItemData) {
 			// Esto nos obliga a que cada campo del objeto coincida con su análogo en el id del html. Como el formulario lo construimos dinamicamente, deberia coincidir
-			attributes.forEach(({name}) => {
-				setValue(name, formItemData[name])
+
+			attributes.forEach(({ name }) => {
+				setValue(name, formItemData[name]);
 			});
 		}
-	});
+	}, [formItemData, attributes, setValue]);
 
 	return (
-		<form className="d-flex flex-col gap-3" onSubmit={handleSubmit(submitFunction)} >
-			{/* Aunque no exista el atributo options no pasa nada. Se desestructura y se inicializa con undefined. Despues no se llega a ejecutar si no es un select  */}
-			{attributes.map(({ name, label, type, validators, options }) => { 
+		<form className="d-flex flex-col gap-3" onSubmit={handleSubmit(submitFunction)}>
+						{/* Aunque no exista el atributo options no pasa nada. Se desestructura y se inicializa con undefined. Despues no se llega a ejecutar si no es un select  */}
+
+			{attributes.map(({ name, label, type, validators, options, requiredRole }) => {
+				// Comprobamos si el rol del usuario coincide con el rol requerido
+				if (requiredRole && session?.user.rol !== requiredRole) {
+					return null; // No mostramos el campo si el rol no coincide
+				}
+
 				const validationRules = validators.reduce((rules, { key, value }) => {
 					rules[key] = value;
 					return rules;
@@ -32,22 +41,24 @@ const DynamicForm = ({ formItemData, attributes, submitFunction }) => {
 				if (type === "select") {
 					return (
 						<div key={name}>
-							<label className="form-label" htmlFor={name}>{label}:</label>
-							<select  className="form-select" name={name} id={name} {...register(name, validationRules)}>
-								{options.map(({value, text})=>{
-									return(
-										<option key={value} value={value}>{text}</option>
-									);
-								})}
+							<label className="form-label" htmlFor={name}>
+								{label}:
+							</label>
+							<select className="form-select" name={name} id={name} {...register(name, validationRules)}>
+								{options.map(({ value, text }) => (
+									<option key={value} value={value}>
+										{text}
+									</option>
+								))}
 							</select>
 							{validators.map(
-							({ key, errmssg }) =>
-								errors[name]?.type === key && (
-									<p key={key} className="text-red-500">
-										{errmssg}
-									</p>
-								)
-						)}
+								({ key, errmssg }) =>
+									errors[name]?.type === key && (
+										<p key={key} className="text-red-500">
+											{errmssg}
+										</p>
+									)
+							)}
 						</div>
 					);
 				}
@@ -67,7 +78,7 @@ const DynamicForm = ({ formItemData, attributes, submitFunction }) => {
 					</div>
 				);
 			})}
-			<input type="submit" value="Guardar" className="btn btn-primary"/>
+			<input type="submit" value="Guardar" className="btn btn-primary" />
 		</form>
 	);
 };
