@@ -67,7 +67,7 @@ export default function AuthComponent() {
 				</>
 			)}
 			<li>
-				<Link className="dropdown-item" href="#">
+				<Link className="dropdown-item" href={`/gestion/usuarios/${session?.user.id}`}>
 					Ajustes
 				</Link>
 			</li>
