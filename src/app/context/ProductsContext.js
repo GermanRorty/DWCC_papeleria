@@ -10,6 +10,7 @@ const ProductsListContext = createContext();
 export const ProductsListContextProvider = ({ children }) => {
 	const [productsList, setProductsList] = useState([]);
 	const { compraHecha, setCompraHecha } = useCartContext();
+	const [edicionHecha, setEdicionHecha] = useState(false);
 
 	useEffect(() => {
 		// // DEBUG:
@@ -22,7 +23,18 @@ export const ProductsListContextProvider = ({ children }) => {
 		setCompraHecha(false);
 	}, [compraHecha]);
 
-	return <ProductsListContext.Provider value={{ productsList, setProductsList }}>{children}</ProductsListContext.Provider>;
+	useEffect(() => {
+		if (edicionHecha) {
+			const fetchProducts = async () => {
+				const products = await getProductos();
+				setProductsList(products);
+			};
+			fetchProducts();
+			setEdicionHecha(false);
+		}
+	}, [edicionHecha]);
+
+	return <ProductsListContext.Provider value={{ productsList, setProductsList, edicionHecha, setEdicionHecha }}>{children}</ProductsListContext.Provider>;
 };
 
 export const useProductsListContext = () => useContext(ProductsListContext);
