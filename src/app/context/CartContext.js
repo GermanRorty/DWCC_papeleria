@@ -1,6 +1,11 @@
 "use client";
 import Image from "next/image";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useScrollYContext } from "./ScrollYContext";
+import CartDeleteButton from "@/components/CartDeleteButton";
+import OnClickPressButton from "@/components/OnClickPressButton";
+import CartRemoveButton from "@/components/CartRemoveButton";
+import CartPaymentButton from "@/components/CartPaymentButton";
 
 const CartContext = createContext();
 
@@ -8,6 +13,10 @@ const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 	const [displayCart, setDisplayCart] = useState(false);
+	const [compraHecha, setCompraHecha] = useState(false);
+	const [cartSynced, setCartSynced] = useState(false);
+	const { scrollingY, setScrollingY } = useScrollYContext();
+
 	// Al cargar el componente actualizamos el carro con lo almacenado en localStorage. Esperamos a que este cargado por si el componente intenta acceder a localStorage antes de que esté disponible
 	useEffect(() => {
 		const savedCart = localStorage.getItem("cart");
@@ -21,22 +30,37 @@ export const CartContextProvider = ({ children }) => {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	}, [cart]);
 
+
 	return (
-		<CartContext.Provider value={{ cart, setCart, displayCart, setDisplayCart }}>
+		<CartContext.Provider value={{ cart, setCart, displayCart, setDisplayCart, compraHecha, setCompraHecha, cartSynced, setCartSynced }}>
 			{children}
-			<div className={`flex-col position-fixed top-0 right-0 ${displayCart ? "d-flex" : "d-none"}`}>
-				{cart.map(({ id, name, quantity, imageUrl, price}) => {
+			<div
+				className={`flex-col d-flex position-fixed bg-white rounded-s-lg ${scrollingY ? "top-28 h-5/6 " : "top-72 h-3/5 "} right-0 ${
+					displayCart ? "translate-x-0" : "translate-x-full"
+				}  w-25 shadow overflow-y-auto transition-all ease-linear duration-200`}
+			>
+				<CartPaymentButton />
+
+				{cart.map(({ id, name, quantity, imageUrl, price, amount }) => {
+					if (typeof cart[0] === "string") return cart[0];
+
 					return (
-						<div key={id}>
+						<div key={id} className="m-3 d-flex">
 							<div>
 								<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
-								{name} - Cantidad: {quantity}
-								<br/>
-								Precio total: {quantity * price}€
+								{name} - Cantidad: {quantity}- Existencias: {amount}
+								<br />
+								Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€
+							</div>
+							<div>
+								<OnClickPressButton sign={-1} id={id} text={"-"}></OnClickPressButton>
+								<OnClickPressButton sign={1} id={id} text={"+"}></OnClickPressButton>
+								<CartRemoveButton productId={id} />
 							</div>
 						</div>
 					);
 				})}
+				<CartDeleteButton />
 			</div>
 		</CartContext.Provider>
 	);
