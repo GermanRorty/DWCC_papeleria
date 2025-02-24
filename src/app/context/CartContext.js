@@ -7,6 +7,7 @@ import OnClickPressButton from "@/components/OnClickPressButton";
 import CartRemoveButton from "@/components/CartRemoveButton";
 import CartPaymentButton from "@/components/CartPaymentButton";
 
+
 const CartContext = createContext();
 
 // Creamos un proveedor que servirá para envolver todos los componentes que queramos estén dentro del contexto. Redirige a un CartContext.Provider
@@ -39,28 +40,31 @@ export const CartContextProvider = ({ children }) => {
 					displayCart ? "translate-x-0" : "translate-x-full"
 				}  w-25 shadow overflow-y-auto transition-all ease-linear duration-200`}
 			>
-				<CartPaymentButton />
+				<CartDeleteButton />
+				
 
 				{cart.map(({ id, name, quantity, imageUrl, price, amount }) => {
 					if (typeof cart[0] === "string") return cart[0];
 
 					return (
-						<div key={id} className="m-3 d-flex">
+						<div key={id} className="m-3 d-flex justify-between">
 							<div>
 								<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
 								{name} - Cantidad: {quantity}- Existencias: {amount}
-								<br />
+								<br/>
 								Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€
 							</div>
-							<div>
+							<div className="d-flex flex-col right-0 justify-center align-items-center">
+								<div className="d-flex gap-1">
 								<OnClickPressButton sign={-1} id={id} text={"-"}></OnClickPressButton>
 								<OnClickPressButton sign={1} id={id} text={"+"}></OnClickPressButton>
+								</div>
 								<CartRemoveButton productId={id} />
 							</div>
 						</div>
 					);
 				})}
-				<CartDeleteButton />
+				<CartPaymentButton />
 			</div>
 		</CartContext.Provider>
 	);
