@@ -1,9 +1,5 @@
-// app/components/DynamicForm.js
-
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-
 
 const DynamicForm = ({ formItemData, attributes, submitFunction, session }) => {
 	const {
@@ -16,17 +12,21 @@ const DynamicForm = ({ formItemData, attributes, submitFunction, session }) => {
 	useEffect(() => {
 		if (formItemData) {
 			// Esto nos obliga a que cada campo del objeto coincida con su análogo en el id del html. Como el formulario lo construimos dinamicamente, deberia coincidir
-
 			attributes.forEach(({ name }) => {
 				setValue(name, formItemData[name]);
 			});
 		}
-	}, [formItemData, attributes, setValue]);
+
+		// Si el usuario no es admin, establecer rol por defecto a "common-user"
+		const roleField = attributes.find((attr) => attr.name === "rol");
+		if (roleField && session?.user?.rol !== "admin") {
+			setValue("rol", "common-user");
+		}
+	}, [formItemData, attributes, setValue, session]);
 
 	return (
 		<form className="d-flex flex-col gap-3" onSubmit={handleSubmit(submitFunction)}>
-						{/* Aunque no exista el atributo options no pasa nada. Se desestructura y se inicializa con undefined. Despues no se llega a ejecutar si no es un select  */}
-
+			{/* Aunque no exista el atributo options no pasa nada. Se desestructura y se inicializa con undefined. Despues no se llega a ejecutar si no es un select  */}
 			{attributes.map(({ name, label, type, validators, options, requiredRole }) => {
 				// Comprobamos si el rol del usuario coincide con el rol requerido
 				if (requiredRole && session?.user.rol !== requiredRole) {
