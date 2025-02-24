@@ -11,7 +11,7 @@ const CartRemoveButton = ({ productId }) => {
         });
     };
 
-    return <button onClick={() => removeFromCart(productId)}>Eliminar</button>;
+    return <button className="btn btn-danger px-2 m-1" onClick={() => removeFromCart(productId)}>Eliminar</button>;
 };
 
 export default CartRemoveButton;
