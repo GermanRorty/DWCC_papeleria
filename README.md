@@ -58,3 +58,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Añadir el 404
 - Revisar que alc errar la ventana y abrir con la cuenta abierta, también se suman sin limite la cesta
 - ñadir mensajes de confirmación de edición y crecaión
+- Añadir una imagen o icono segun rol en el formulario de usuarios
+-Añadir botón de añadir usuario
+- Incluir el precio total en el carrito

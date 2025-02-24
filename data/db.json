@@ -151,6 +151,14 @@
       "rol": "common-user",
       "cart": [],
       "psswrd": "123"
+    },
+    {
+      "name": "German",
+      "email": "german@mail.com",
+      "psswrd": "1234abc",
+      "rol": "common-user",
+      "cart": [],
+      "id": 3
     }
   ]
 }
