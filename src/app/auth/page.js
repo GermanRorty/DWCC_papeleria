@@ -47,11 +47,18 @@ export default function AuthComponent() {
 	return (
 		<>
 			{session ? (
-				<li>
-					<button className="dropdown-item" onClick={logoutProcess}>
-						Cerrar sesión
-					</button>
-				</li>
+				<>
+					<li>
+						<button className="dropdown-item" onClick={logoutProcess}>
+							Cerrar sesión
+						</button>
+					</li>
+					<li>
+						<Link className="dropdown-item" href={`/gestion/usuarios/${session?.user.id}`}>
+							Ajustes
+						</Link>
+					</li>
+				</>
 			) : (
 				<>
 					<li>
@@ -66,11 +73,6 @@ export default function AuthComponent() {
 					</li>
 				</>
 			)}
-			<li>
-				<Link className="dropdown-item" href={`/gestion/usuarios/${session?.user.id}`}>
-					Ajustes
-				</Link>
-			</li>
 		</>
 	);
 }
