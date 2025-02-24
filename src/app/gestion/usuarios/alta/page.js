@@ -70,7 +70,7 @@ const UserManagementForm = () => {
 		<div className="d-flex flex-col justify-content-center align-items-center pt-10">
 			<h5 className="w-50">Datos del usuario</h5>
             <div className="w-50 pt-3">
-			    <DynamicForm attributes={userFields} submitFunction={submitForm}/>
+			    <DynamicForm attributes={userFields} submitFunction={submitForm} session={session}/>
             </div>
 		</div>
 	);
