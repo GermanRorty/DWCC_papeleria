@@ -7,8 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const UserPanel = ({ user }) => {
+const AddUserButton = () =>{
+    return(
+        <Link href={"/gestion/usuarios/alta"} className="btn position-absolute right-0 -translate-y-12 w-fit h-fit p-0 m-0"><i className="bi bi-plus-square w-full fs-2 h-full m-0 p-0"></i></Link>
+    );
+}
 
+const UserPanel = ({ user }) => {
 	return(
 		<Link href={`/gestion/usuarios/${user.id}`} className=" btn border rounded d-flex flex-col align-items-center p-4 shadow">
 			{user.rol === "admin" && <Image src={"/images/users_rols/admin-icon.svg"} width={100} height={100} alt={"admin icon"}></Image>}
@@ -26,7 +31,8 @@ const UsersGrid = ({users}) => {
 	if (!users) return <div>Loading...</div>;
 
 	return (
-		<div className="grid grid-cols-5 gap-5 m-5">
+		<div className=" grid grid-cols-5 gap-5 m-5 position-relative">
+			<AddUserButton/>
 			{users.map((u) => {
 				return <UserPanel key={u.id} user={u}></UserPanel>;
 			})}
