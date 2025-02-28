@@ -88,7 +88,7 @@ const DynamicForm = ({ formItemData, attributes, submitFunction, session, catego
 					</div>
 				);
 			})}
-			<input type="submit" value="Guardar" className="btn btn-primary" />
+			<input type="submit" value="Guardar" className="btn btn-primary w-fit self-center " />
 		</form>
 	);
 };

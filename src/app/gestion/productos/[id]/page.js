@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Slide } from "react-toastify";
 
 const productFields = [
 	{
@@ -94,8 +95,23 @@ const ProductManagementForm = ({ productData, setFunction }) => {
 
 			setFunction(dataWithId);
 			setEdicionHecha(true);
+			toast.success("Producto editado con éxito", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+			});
 		} catch (error) {
 			console.error("Error:", error);
+			toast.error("No se ha podido editar el producto", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+				className: "custom-error-toast", 
+			});
 		}
 	};
 

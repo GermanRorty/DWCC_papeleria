@@ -6,7 +6,7 @@
       "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
       "price": 1.8,
-      "amount": 38,
+      "amount": 28,
       "categoryId": 5
     },
     {
@@ -24,7 +24,7 @@
       "name": "Regla Plástica",
       "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
       "price": 0.99,
-      "amount": 192,
+      "amount": 0,
       "categoryId": 5
     },
     {
@@ -33,13 +33,13 @@
       "name": "Lápiz Profesional",
       "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
       "price": 0.6,
-      "amount": 292,
+      "amount": 290,
       "categoryId": 9
     },
     {
       "name": "Mochila de Viaje",
       "price": 34,
-      "amount": 242,
+      "amount": 239,
       "description": "Mochila con múltiples compartimentos, ideal para viajar.",
       "id": "l_cyiMG",
       "imageUrl": "l_cyiMG.jpg",
@@ -57,7 +57,7 @@
     {
       "name": "Rotulador Marcador",
       "price": 2.3,
-      "amount": 45,
+      "amount": 0,
       "description": "Rotulador de punta fina, color negro, ideal para subrayar.",
       "id": "f4sG6yJ",
       "imageUrl": "rotulador.jpg",
@@ -66,7 +66,7 @@
     {
       "name": "Cuaderno Diario",
       "price": 5,
-      "amount": 100,
+      "amount": 96,
       "description": "Cuaderno de 150 hojas, ideal para apuntes diarios.",
       "id": "b7Zg5U",
       "imageUrl": "diario.jpg",
@@ -174,7 +174,7 @@
     {
       "name": "Rotuladores Fluorescentes",
       "price": 3.5,
-      "amount": 50,
+      "amount": 51,
       "description": "Set de rotuladores fluorescentes para subrayar.",
       "id": "s1Pv8K",
       "imageUrl": "rotuladoresfluo.jpg",
@@ -188,6 +188,51 @@
       "id": "f9Sg2P",
       "imageUrl": "taza.jpg",
       "categoryId": 3
+    },
+    {
+      "name": "wrgag",
+      "price": "234.32",
+      "amount": "3233",
+      "description": "argagrgrr",
+      "categoryId": "8",
+      "id": "fgyRSlI",
+      "imageUrl": "fgyRSlI.jpg"
+    },
+    {
+      "name": "wrgag",
+      "price": "234.32",
+      "amount": "3233",
+      "description": "argagrgrr",
+      "categoryId": "8",
+      "id": "fFrAh-3",
+      "imageUrl": "fFrAh-3.jpg"
+    },
+    {
+      "name": "dbsee",
+      "price": "63.3",
+      "amount": "654",
+      "description": "awgawg",
+      "categoryId": "8",
+      "id": "lZRa889",
+      "imageUrl": "lZRa889.jpg"
+    },
+    {
+      "name": "awqtqw",
+      "price": "3.32",
+      "amount": "665465",
+      "description": "awgwqeg",
+      "categoryId": "7",
+      "id": "XAGCC3j",
+      "imageUrl": "XAGCC3j.png"
+    },
+    {
+      "name": "aweawgw",
+      "price": "3.25",
+      "amount": "632",
+      "description": "ethwerht",
+      "categoryId": "8",
+      "id": "ljlF-Sp",
+      "imageUrl": "ljlF-Sp.png"
     }
   ],
   "categorias": [
@@ -238,18 +283,7 @@
       "name": "Admin",
       "email": "admin@mail.com",
       "rol": "admin",
-      "cart": [
-        {
-          "id": "a1d2f3g4h5",
-          "imageUrl": "boligrafo.jpg",
-          "name": "Bolígrafo",
-          "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
-          "price": 1.8,
-          "amount": 230,
-          "categoryId": 5,
-          "quantity": 11
-        }
-      ],
+      "cart": [],
       "psswrd": "renaido"
     },
     {
@@ -259,14 +293,6 @@
       "rol": "common-user",
       "cart": [],
       "psswrd": "123"
-    },
-    {
-      "name": "German",
-      "email": "german@mail.com",
-      "psswrd": "1234abc",
-      "rol": "common-user",
-      "cart": [],
-      "id": 3
     },
     {
       "name": "Ana",
@@ -299,6 +325,22 @@
       "rol": "common-user",
       "cart": [],
       "id": 7
+    },
+    {
+      "name": "María",
+      "email": "adminmaria@mail.com",
+      "psswrd": "1234",
+      "rol": "admin",
+      "cart": [],
+      "id": 8
+    },
+    {
+      "name": "Xesús",
+      "email": "xesus@mail.com",
+      "psswrd": "1234",
+      "rol": "common-user",
+      "cart": [],
+      "id": 9
     }
   ]
 }

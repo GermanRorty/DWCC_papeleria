@@ -7,7 +7,7 @@ import { addNewUser } from "@/lib/services/users";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
-import { toast } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 
 const userFields = [
 	{
@@ -41,25 +41,23 @@ const userFields = [
 		name: "rol",
 		label: "Rol",
 		type: "select",
-        options:[
-            {value:"admin", text:"Administrador"},
-            {value:"common-user", text:"Usuario"},
-            {value:"employee", text:"Empleado"}
-        ],
+		options: [
+			{ value: "admin", text: "Administrador" },
+			{ value: "common-user", text: "Usuario" },
+			{ value: "employee", text: "Empleado" },
+		],
 		validators: [
 			{ key: "required", value: true, errmssg: "La descripción es obligatoria" },
 			{ key: "maxLength", value: 1024, errmssg: "Máximo 1024 caracteres" },
 		],
-		requiredRole: "admin",  // Este campo solo se mostrará si el usuario es admin
-
+		requiredRole: "admin", // Este campo solo se mostrará si el usuario es admin
 	},
-
 ]; // Este data es un objeto normal con la informacion del formulario
 
 const UserManagementForm = () => {
-	const{data:session, status} = useSession();
+	const { data: session, status } = useSession();
 	const router = useRouter();
-	
+
 	const submitForm = async (data, reset) => {
 		try {
 			data.cart = [];
@@ -67,18 +65,32 @@ const UserManagementForm = () => {
 			console.log("Usuario guardado:", userAdded);
 			reset();
 			session?.user?.rol === "common-user" && router.push("/");
-			toast.success("¡Producto agregado al carrito!");
-
+			toast.success("Usuario dado de alta", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+			});
 		} catch (error) {
+			toast.error("No se ha podido dar de alta el usuario", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+                className: "custom-error-toast", 
+
+			});
 			console.error("Error:", error);
 		}
 	};
 	return (
 		<div className="d-flex flex-col justify-content-center align-items-center pt-10">
 			<h5 className="w-50">Datos del usuario</h5>
-            <div className="w-50 pt-3">
-			    <DynamicForm attributes={userFields} submitFunction={submitForm} session={session}/>
-            </div>
+			<div className="w-50 pt-3">
+				<DynamicForm attributes={userFields} submitFunction={submitForm} session={session} />
+			</div>
 		</div>
 	);
 };

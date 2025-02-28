@@ -32,8 +32,8 @@ const Articulo = ({ articleProp }) => {
 			<div className="p-2 w-full">
 				<div className="d-flex justify-between p-2">
 					<div>
-						<div id="articulo-name">{name}</div>
-						<div id="articulo-price">{parseFloat(price).toFixed(2)}€</div>
+						<div className="titulo mb-2" id="articulo-name">{name}</div>
+						<div className="titulo text-xs" id="articulo-price">{parseFloat(price).toFixed(2)}€</div>
 					</div>
 					<div>
 						<CartAddButton product={articleProp} />

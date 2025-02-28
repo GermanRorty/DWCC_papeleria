@@ -27,7 +27,7 @@ const GestionDropdown = ({ session, aria, onEntering, onLeaving }) => {
 				aria-expanded={aria ? "true" : "false"}
 				onClick={redirectToManagement}
 			>
-				<div>Gestión</div>
+				<div className="titulo">Gestión</div>
 				<Image alt="agenda logomark" src="/images/agendaicon.svg" width={500} height={500} className="w-14"></Image>
 			</button>
 
@@ -75,7 +75,7 @@ const NavBarCSR = () => {
 					<Image alt="magnifying glass logomark" src="/images/magnifyinglass.svg" width={500} height={500} className="w-10"></Image>
  				</li>
 				<li className="d-flex flex-col items-center">
-					<div className="position-absolute -translate-y-6  py-0 my-0 h-0.5">{typeof cart[0]!="string" && cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
+					<div className="position-absolute -translate-y-4 text-xs py-0 my-0 h-0.5 titulo">{typeof cart[0]!="string" && cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
 					<button onClick={handleDisplayCart}>
 						<Image alt="old backpack logomark" src="/images/oldbackpackicon.svg" width={500} height={500} className="w-12"></Image>
 					</button>
@@ -85,7 +85,7 @@ const NavBarCSR = () => {
 				className="d-flex flex-col justify-content-center align-items-center m-0 p-0"
 				onMouseLeave={() => setIsSignMenuDown(false)}
 			>
-				<div className="position-absolute -translate-y-10">{session?.user.name}</div>
+				<div className="position-absolute text-xs -translate-y-9 titulo">{session?.user.name}</div>
 				<div>
 				<button
 					className="btn dropdown-toggle p-1"

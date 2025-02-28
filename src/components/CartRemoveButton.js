@@ -12,7 +12,7 @@ const CartRemoveButton = ({ productId }) => {
     };
 
     return (
-        <button className="btn border-1 border-black shadow-sm m-0 h-6 w-6  p-0 d-flex justify-center position-absolute right-0 top-0" onClick={() => removeFromCart(productId)}>
+        <button className="btn border-1 border-black shadow-sm m-0 h-6 w-6  p-0 d-flex justify-center right-0 top-0" onClick={() => removeFromCart(productId)}>
           <i className="bi bi-x text-black"></i>
         </button>
       );};

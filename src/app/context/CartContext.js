@@ -45,24 +45,22 @@ export const CartContextProvider = ({ children }) => {
 
 					return (
 						<div key={id} className="m-3 d-flex justify-between position-relative">
-							<CartRemoveButton productId={id} />
 
-							<div>
+							<div className="d-flex flex-col justify-center align-items-center">
 								<div className="d-flex justify-center align-items-center gap-4">
 									<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
-									<div className="d-flex">
-										<div>{name}</div>
+									<div className="d-flex flex-col">
+										<div className="titulo">{name}</div>
+										<div>Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€</div>
 									</div>
 								</div>
-								<div>Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€</div>
-								<br />
 							</div>
 							<div className="d-flex flex-col right-0 justify-center align-items-center">
 								<div className="d-flex flex-col gap-1">
 									<div className="d-flex justify-between">
-										<div>Stock: </div>
+										<div className="titulo text-sm">Stock: </div>
 
-										<div>{amount}</div>
+										<div className="titulo text-sm">{amount}</div>
 									</div>
 									<div className="d-flex gap-1">
 										<OnClickPressButton sign={-1} id={id} text={"-"}></OnClickPressButton>
@@ -70,12 +68,13 @@ export const CartContextProvider = ({ children }) => {
 									</div>
 									{/* El stock normalmente no se muestra pero para ver cuando se llega al límite lo descomentaremos */}
 									<div className="d-flex justify-between">
-										<div>Uds: </div>
-
-										<div>{quantity}</div>
+										<div className="titulo text-sm">Uds: </div>
+										<div className="titulo text-sm">{quantity}</div>
 									</div>
 								</div>
 							</div>
+							<CartRemoveButton productId={id} />
+
 						</div>
 					);
 				})}

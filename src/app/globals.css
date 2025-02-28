@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Lexend:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap");
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 @tailwind base;
@@ -40,17 +41,14 @@ body {
 }
 
 .breadcrumb-item a {
-	text-decoration: none !important; 
-	color: black !important; 
+	text-decoration: none !important;
+	color: black !important;
 	font-weight: bolder;
 }
 
 .breadcrumb-item a:hover {
-	color: #b0b0b0 !important; 
+	color: #b0b0b0 !important;
 }
-
-
-
 
 .footer {
 	margin-top: auto; /* Esto asegura que el footer siempre quede en la parte inferior */
@@ -69,10 +67,9 @@ body {
 	font-family: "Atkinson Hyperlegible Next", sans-serif;
 }
 
-
 nav .btn:hover {
-	background-color: rgba(255, 255, 255, 0.1); 
-	border-color: rgba(0, 0, 0, 0.02); 
+	background-color: rgba(255, 255, 255, 0.1);
+	border-color: rgba(0, 0, 0, 0.02);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -81,13 +78,13 @@ nav .btn {
 }
 
 .btn-primary {
-	background-color: #8b4513 !important; 
+	background-color: #8b4513 !important;
 	border-color: #6a2c0f !important;
-	color: white !important; 
+	color: white !important;
 }
 
 .btn-primary:hover {
-	background-color: #5e2e0c !important; 
+	background-color: #5e2e0c !important;
 	border-color: #8b4513 !important;
 }
 
@@ -96,51 +93,65 @@ nav .btn {
 	transition: all ease-in-out 300ms;
 }
 
-
 .link-hover {
 	border: none !important;
 }
 
-
 nav .btn:focus {
-  outline: none !important; 
-  box-shadow: none !important;
-  border: none !important; 
-  filter: sepia();
+	outline: none !important;
+	box-shadow: none !important;
+	border: none !important;
+	filter: sepia();
 }
 
-.btn{
-  outline: none !important; 
-  border: none !important; 
-  transition: all 0.1s ease-in-out;
+.btn {
+	outline: none !important;
+	border: none !important;
+	transition: all 0.1s ease-in-out;
 }
 
 .btn:active {
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
-  transform: scale(0.98); 
-  transition: all 0.1s ease-in-out;
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+	transform: scale(0.98);
+	transition: all 0.1s ease-in-out;
 }
 
 .btn:hover {
-  scale: 1.05;
-  transition: all 0.1s ease-in-out;
+	scale: 1.05;
+	transition: all 0.1s ease-in-out;
 }
 
 /* Color normal del enlace */
 .link-hover-addentitybutton {
-  color: #000000;
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+	color: #000000;
+	transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* Color al pasar el mouse */
 .link-hover-addentitybutton:hover {
-  color: #a35928; /* Verde */
+	color: #a35928; /* Verde */
 }
 
 .btn-cleaning-button:active {
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.Toastify__toast {
+	border-radius: 8px;
+	font-size: 16px;
+	background-color: #c9844b; /* Color oscuro */
+	color: #ffffff;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.titulo {
+	font-family: "Playwrite IT Moderna", sans-serif;
+	font-weight: 400; /* Ajusta según lo que necesites */
+}
+
+.custom-error-toast {
+	background-color: orange !important; /* Cambia el fondo a naranja */
+	color: white !important; /* Asegura que el texto sea legible */
+}

@@ -8,6 +8,7 @@ import { addNewUser, editUser, getUser } from "@/lib/services/users";
 import { useSession } from "next-auth/react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Slide } from "react-toastify";
 
 const userFields = [
 	{
@@ -63,7 +64,23 @@ const UserManagementForm = ({ userData, setFunction }) => {
 			const userEdited = await editUser(dataWithIdCart); // Este data es un objeto normal con la informacion del formulario
 			console.log("Usuario editado:", userEdited);
 			setFunction(dataWithIdCart);
+			toast.success("Usuario editado con éxito", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+			});
 		} catch (error) {
+			toast.error("No se ha podido editar el usuario", {
+				autoClose: 4000,
+				hideProgressBar: true,
+				position: "bottom-right",
+				transition: Slide,
+				icon: false,
+                className: "custom-error-toast", 
+
+			});
 			console.error("Error:", error);
 		}
 	};
