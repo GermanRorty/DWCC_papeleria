@@ -93,7 +93,6 @@ export async function uploadProductImgFs(productId, imgFile) {
 	}
 }
 
-// TODO: hacer update img
 
 export async function editProductFromDatabase(data) {
 	// // DEBUG:
@@ -117,6 +116,32 @@ export async function editProductFromDatabase(data) {
 		return editedProduct.id; 
 	} catch (error) {
 		console.error("Error en editProductFromDatabase:", error);
+		throw error; 
+	}
+}
+
+export async function updateProductImgFs(productId, imgFile) {
+	try {
+		// // DEBUG:
+		// console.log(imgFile);
+		const formData = new FormData();
+		formData.append("productId", productId); // Enviar el ID
+		formData.append("image", imgFile);
+
+		const updateResponse = await fetch(API_URL_UPLOAD_IMG, {
+			method: "PUT",
+			body: formData,
+		});
+
+		if (!updateResponse.ok) {
+			throw new Error("Error al subir la imagen.");
+		}
+
+		const { imageUrl } = await updateResponse.json();
+
+		return imageUrl;
+	} catch (error) {
+		console.error("Error en updateProductImgFs:", error);
 		throw error; 
 	}
 }

@@ -5,7 +5,9 @@
 import DynamicForm from "@/components/DynamicForm";
 import { addNewUser } from "@/lib/services/users";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const userFields = [
 	{
@@ -52,16 +54,21 @@ const userFields = [
 
 	},
 
-];
+]; // Este data es un objeto normal con la informacion del formulario
 
 const UserManagementForm = () => {
 	const{data:session, status} = useSession();
+	const router = useRouter();
 	
-	const submitForm = async (data) => {
+	const submitForm = async (data, reset) => {
 		try {
 			data.cart = [];
-			const userAdded = await addNewUser(data); // Este data es un objeto normal con la informacion del formulario
+			const userAdded = await addNewUser(data);
 			console.log("Usuario guardado:", userAdded);
+			reset();
+			session?.user?.rol === "common-user" && router.push("/");
+			toast.success("¡Producto agregado al carrito!");
+
 		} catch (error) {
 			console.error("Error:", error);
 		}

@@ -1,15 +1,10 @@
-// Pagina principal de la aplicación
+import Carousel from "@/components/Carousel";
 
 export default function Home() {
-
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center h-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        Holita a la papeleria
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-       
-      </footer>
+    <div className="position-relative w-full h-full p-0 -mt-10">
+      <h1 className="home-font position-absolute top-50 start-50 translate-middle z-50">Hi</h1>
+      <Carousel />
     </div>
   );
 }

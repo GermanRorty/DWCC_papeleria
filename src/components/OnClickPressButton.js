@@ -34,7 +34,7 @@ const OnClickPressButton = ({ sign, id, text }) => {
 
 	return (
 		<button
-			className="btn btn-primary"
+			className="btn btn-primary w-9"
 			onClick={() => oneUnitFunction(sign, id)}
 			onMouseDown={() => holdPressing(sign, id)}
 			onMouseUp={() => releasePressing()}

@@ -4,17 +4,21 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useCartContext } from "../context/CartContext";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AuthComponent() {
 	const { status, data: session } = useSession(); // Desestructura y renombra: data->session
 	const { cart, setCart, cartSynced, setCartSynced } = useCartContext();
+	const router = useRouter();
 
 	const logoutProcess = async () => {
 		const cart = JSON.parse(localStorage.getItem("cart")) || [];
 		await syncUserCartToDB(session.user.id, cart);
-		signOut();
 		localStorage.removeItem("cart");
 		setCartSynced(false);
+		// Redirecciona tras el logout
+		signOut({ callbackUrl: "/" });
+
 		// // DEBUG:
 		// console.log("Carro antes de cerrar sesion", cart);
 	};
@@ -54,7 +58,7 @@ export default function AuthComponent() {
 						</button>
 					</li>
 					<li>
-						<Link className="dropdown-item" href={`/gestion/usuarios/${session?.user.id}`}>
+						<Link className="dropdown-item" href={`/Gestion/Usuarios/${session?.user.id}`}>
 							Ajustes
 						</Link>
 					</li>
@@ -67,7 +71,7 @@ export default function AuthComponent() {
 						</button>
 					</li>
 					<li>
-						<Link className="dropdown-item" href="/gestion/usuarios/alta">
+						<Link className="dropdown-item" href="/Gestion/Usuarios/Alta">
 							Registrarse
 						</Link>
 					</li>

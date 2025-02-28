@@ -6,13 +6,13 @@
       "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
       "price": 1.8,
-      "amount": 295,
+      "amount": 38,
       "categoryId": 5
     },
     {
       "id": "b2d3e4f5g6",
       "imageUrl": "cuaderno.jpg",
-      "name": "002",
+      "name": "Cuaderno Escolar",
       "description": "Cuaderno con tapas duras, 100 hojas, ideal para estudiantes y profesionales.",
       "price": 3.15,
       "amount": 0,
@@ -21,7 +21,7 @@
     {
       "id": "c3e4f5g6h7",
       "imageUrl": "regla.jpg",
-      "name": "003",
+      "name": "Regla Plástica",
       "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
       "price": 0.99,
       "amount": 192,
@@ -30,56 +30,164 @@
     {
       "id": "d4f5g6h7i8",
       "imageUrl": "lapiz.jpg",
-      "name": "004",
+      "name": "Lápiz Profesional",
       "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
       "price": 0.6,
-      "amount": 298,
+      "amount": 292,
       "categoryId": 9
     },
     {
-      "id": "e5g6h7i8j9",
-      "imageUrl": "tijeras.jpg",
-      "name": "005",
-      "description": "Tijeras de acero inoxidable, con mangos ergonómicos, perfectas para cortar papel.",
-      "price": 2.45,
-      "amount": 274,
-      "categoryId": 5
-    },
-    {
-      "name": "ffgewgwe",
-      "price": "345",
-      "amount": 337,
-      "description": "efgfweg",
-      "id": "yVerqCm",
-      "imageUrl": "yVerqCm.png",
-      "categoryId": 5
-    },
-    {
-      "name": "Mochila",
-      "price": "34",
-      "amount": 249,
-      "description": "Negra",
+      "name": "Mochila de Viaje",
+      "price": 34,
+      "amount": 242,
+      "description": "Mochila con múltiples compartimentos, ideal para viajar.",
       "id": "l_cyiMG",
       "imageUrl": "l_cyiMG.jpg",
       "categoryId": 3
     },
     {
-      "name": "sdvas",
-      "price": "234",
-      "amount": 23423420,
-      "description": "avsffva",
-      "id": "kjMy3QU",
-      "imageUrl": "kjMy3QU.jpg",
+      "name": "Estuche Portátil",
+      "price": 12.5,
+      "amount": 60,
+      "description": "Estuche compacta para lápices y bolígrafos.",
+      "id": "s3Hf7Zp",
+      "imageUrl": "estuche.jpg",
+      "categoryId": 4
+    },
+    {
+      "name": "Rotulador Marcador",
+      "price": 2.3,
+      "amount": 45,
+      "description": "Rotulador de punta fina, color negro, ideal para subrayar.",
+      "id": "f4sG6yJ",
+      "imageUrl": "rotulador.jpg",
+      "categoryId": 6
+    },
+    {
+      "name": "Cuaderno Diario",
+      "price": 5,
+      "amount": 100,
+      "description": "Cuaderno de 150 hojas, ideal para apuntes diarios.",
+      "id": "b7Zg5U",
+      "imageUrl": "diario.jpg",
+      "categoryId": 7
+    },
+    {
+      "name": "Estilográfica de Lujo",
+      "price": 15.5,
+      "amount": 30,
+      "description": "Estilográfica premium, ideal para escritura elegante.",
+      "id": "r9Fv8Kw",
+      "imageUrl": "estilografica.jpg",
+      "categoryId": 2
+    },
+    {
+      "name": "Portaminas Profesional",
+      "price": 7.5,
+      "amount": 15,
+      "description": "Portaminas de alta precisión, ideal para dibujo técnico.",
+      "id": "p1M5Vw",
+      "imageUrl": "portaminas.jpg",
+      "categoryId": 8
+    },
+    {
+      "name": "Lápiz de Colores",
+      "price": 1.2,
+      "amount": 150,
+      "description": "Lápiz de colores, perfecto para dibujo y arte.",
+      "id": "t2Fq7Us",
+      "imageUrl": "lapizcolores.jpg",
+      "categoryId": 9
+    },
+    {
+      "name": "Set de Pintura Acrílica",
+      "price": 25,
+      "amount": 50,
+      "description": "Set completo de pintura acrílica con 12 colores.",
+      "id": "a4Jf8B",
+      "imageUrl": "pintura.jpg",
+      "categoryId": 10
+    },
+    {
+      "name": "Tinta para Estilográfica",
+      "price": 3.5,
+      "amount": 75,
+      "description": "Tinta de calidad para estilográficas.",
+      "id": "i5L7R8g",
+      "imageUrl": "tinta.jpg",
+      "categoryId": 2
+    },
+    {
+      "name": "Mochila Escolar",
+      "price": 20,
+      "amount": 110,
+      "description": "Mochila escolar, con espacio para laptop y libros.",
+      "id": "k6Bf8Y",
+      "imageUrl": "mochilaescolar.jpg",
+      "categoryId": 3
+    },
+    {
+      "name": "Bolígrafo Gel",
+      "price": 2,
+      "amount": 60,
+      "description": "Bolígrafo de gel, suave escritura, ideal para firmas.",
+      "id": "z4Gv2D",
+      "imageUrl": "boligrafogel.jpg",
       "categoryId": 5
     },
     {
-      "name": "erfge",
-      "price": "345",
-      "amount": "23452345",
-      "description": "gsdgw",
-      "id": "4v-6OGi",
-      "imageUrl": "4v-6OGi.jpg",
-      "categoryId": 5
+      "name": "Cinta Correctora",
+      "price": 1.5,
+      "amount": 120,
+      "description": "Cinta correctora para errores de tinta.",
+      "id": "c7Hf9T",
+      "imageUrl": "cinta.jpg",
+      "categoryId": 6
+    },
+    {
+      "name": "Lápiz de Carbón",
+      "price": 0.8,
+      "amount": 75,
+      "description": "Lápiz de carbón para dibujo artístico.",
+      "id": "x6Tz1A",
+      "imageUrl": "lapizcarbon.jpg",
+      "categoryId": 9
+    },
+    {
+      "name": "Porta Retratos",
+      "price": 6,
+      "amount": 30,
+      "description": "Porta retratos de madera, con espacio para fotos 10x15.",
+      "id": "u5Jk4N",
+      "imageUrl": "portaretratos.jpg",
+      "categoryId": 4
+    },
+    {
+      "name": "Lápiz de Colores Pastel",
+      "price": 3,
+      "amount": 80,
+      "description": "Lápices de colores pastel, para arte y dibujo.",
+      "id": "v2Lm9T",
+      "imageUrl": "lapizpastel.jpg",
+      "categoryId": 9
+    },
+    {
+      "name": "Rotuladores Fluorescentes",
+      "price": 3.5,
+      "amount": 50,
+      "description": "Set de rotuladores fluorescentes para subrayar.",
+      "id": "s1Pv8K",
+      "imageUrl": "rotuladoresfluo.jpg",
+      "categoryId": 6
+    },
+    {
+      "name": "Taza de Cerámica",
+      "price": 7.5,
+      "amount": 30,
+      "description": "Taza de cerámica, ideal para bebidas calientes.",
+      "id": "f9Sg2P",
+      "imageUrl": "taza.jpg",
+      "categoryId": 3
     }
   ],
   "categorias": [
@@ -132,14 +240,14 @@
       "rol": "admin",
       "cart": [
         {
-          "id": "c3e4f5g6h7",
-          "imageUrl": "regla.jpg",
-          "name": "003",
-          "description": "Regla de plástico transparente, 30 cm, con escala en centímetros y milímetros.",
-          "price": 0.99,
-          "amount": 192,
+          "id": "a1d2f3g4h5",
+          "imageUrl": "boligrafo.jpg",
+          "name": "Bolígrafo",
+          "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
+          "price": 1.8,
+          "amount": 230,
           "categoryId": 5,
-          "quantity": 9
+          "quantity": 11
         }
       ],
       "psswrd": "renaido"
@@ -159,6 +267,38 @@
       "rol": "common-user",
       "cart": [],
       "id": 3
+    },
+    {
+      "name": "Ana",
+      "email": "ana@mail.com",
+      "psswrd": "1234",
+      "rol": "common-user",
+      "cart": [],
+      "id": 4
+    },
+    {
+      "name": "Nadia",
+      "email": "nadia@mail.com",
+      "psswrd": "1234rfd",
+      "rol": "common-user",
+      "cart": [],
+      "id": 5
+    },
+    {
+      "name": "Nadia",
+      "email": "nadia@mail.com",
+      "psswrd": "123rfg",
+      "rol": "common-user",
+      "cart": [],
+      "id": 6
+    },
+    {
+      "name": "Marta",
+      "email": "marta@mail.com",
+      "psswrd": "1234",
+      "rol": "common-user",
+      "cart": [],
+      "id": 7
     }
   ]
 }

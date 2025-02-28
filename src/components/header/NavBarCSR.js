@@ -13,31 +13,32 @@ const GestionDropdown = ({ session, aria, onEntering, onLeaving }) => {
 	const router = useRouter();
 
 	const redirectToManagement = ()=>{
-		router.push("/gestion");
+		router.push("/Gestion");
 	}
 
 	if (session?.user.rol != "admin") return null;
 	return (
 		<div onMouseEnter={onEntering} onMouseLeave={onLeaving}>
 			<button
-				className="btn dropdown-toggle"
+				className="btn dropdown-toggle d-flex align-items-center gap-1 py-1 ps-3"
 				type="button"
 				id="mngmntDropdownButton"
 				data-bs-toggle="dropdown"
 				aria-expanded={aria ? "true" : "false"}
 				onClick={redirectToManagement}
 			>
+				<div>Gestión</div>
 				<Image alt="agenda logomark" src="/images/agendaicon.svg" width={500} height={500} className="w-14"></Image>
 			</button>
 
 			<ul className={`dropdown-menu ${aria ? "show" : ""}`} aria-labelledby="mngmntDropdownButton">
 				<li>
-					<Link className="dropdown-item" href="/gestion/usuarios">
+					<Link className="dropdown-item" href="/Gestion/Usuarios">
 						Usuarios
 					</Link>
 				</li>
 				<li>
-					<Link className="dropdown-item" href="/gestion/productos">
+					<Link className="dropdown-item" href="/Gestion/Productos">
 						Productos
 					</Link>
 				</li>
@@ -76,7 +77,7 @@ const NavBarCSR = () => {
 				<li className="d-flex flex-col items-center">
 					<div className="position-absolute -translate-y-6  py-0 my-0 h-0.5">{typeof cart[0]!="string" && cart.length?cart?.reduce((acc, item) => acc + item.quantity, 0):""}</div>
 					<button onClick={handleDisplayCart}>
-						<Image alt="old backpack logomark" src="/images/oldbackpack.svg" width={500} height={500} className="w-12"></Image>
+						<Image alt="old backpack logomark" src="/images/oldbackpackicon.svg" width={500} height={500} className="w-12"></Image>
 					</button>
 				</li>
 			
@@ -87,14 +88,14 @@ const NavBarCSR = () => {
 				<div className="position-absolute -translate-y-10">{session?.user.name}</div>
 				<div>
 				<button
-					className="btn dropdown-toggle"
+					className="btn dropdown-toggle p-1"
 					type="button"
 					id="dropdownMenuButton"
 					data-bs-toggle="dropdown"
 					aria-expanded={isSignMenuDown ? "true" : "false"}
 					onClick={toggleDropdown}
 				>
-					<Image alt="Ink logomark" src="/images/idcardicon.svg" width={500} height={500} className="w-14"></Image>
+					<Image alt="Ink logomark" src="/images/oldstampicon.svg" width={500} height={500} className="w-14"></Image>
 				</button>
 				<ul className={`dropdown-menu ${isSignMenuDown ? "show" : ""}`} aria-labelledby="dropdownMenuButton">
 					<div className={`${isSignMenuDown?"d-block":"d-none"}`}>

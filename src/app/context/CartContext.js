@@ -7,7 +7,6 @@ import OnClickPressButton from "@/components/OnClickPressButton";
 import CartRemoveButton from "@/components/CartRemoveButton";
 import CartPaymentButton from "@/components/CartPaymentButton";
 
-
 const CartContext = createContext();
 
 // Creamos un proveedor que servirá para envolver todos los componentes que queramos estén dentro del contexto. Redirige a un CartContext.Provider
@@ -31,35 +30,51 @@ export const CartContextProvider = ({ children }) => {
 		localStorage.setItem("cart", JSON.stringify(cart));
 	}, [cart]);
 
-
 	return (
 		<CartContext.Provider value={{ cart, setCart, displayCart, setDisplayCart, compraHecha, setCompraHecha, cartSynced, setCartSynced }}>
 			{children}
 			<div
-				className={`flex-col d-flex position-fixed bg-white rounded-s-lg ${scrollingY ? "top-28 h-5/6 " : "top-72 h-3/5 "} right-0 ${
+				className={`flex-col z-50 d-flex position-fixed bg-white rounded-s-lg ${scrollingY ? "top-28 h-5/6 " : "top-72 h-3/5 "} right-0 ${
 					displayCart ? "translate-x-0" : "translate-x-full"
 				}  w-25 shadow overflow-y-auto transition-all ease-linear duration-200`}
 			>
 				<CartDeleteButton />
-				
 
 				{cart.map(({ id, name, quantity, imageUrl, price, amount }) => {
 					if (typeof cart[0] === "string") return cart[0];
 
 					return (
-						<div key={id} className="m-3 d-flex justify-between">
+						<div key={id} className="m-3 d-flex justify-between position-relative">
+							<CartRemoveButton productId={id} />
+
 							<div>
-								<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
-								{name} - Cantidad: {quantity}- Existencias: {amount}
-								<br/>
-								Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€
+								<div className="d-flex justify-center align-items-center gap-4">
+									<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
+									<div className="d-flex">
+										<div>{name}</div>
+									</div>
+								</div>
+								<div>Precio total: {(Math.round(quantity * price * 100) / 100).toFixed(2)}€</div>
+								<br />
 							</div>
 							<div className="d-flex flex-col right-0 justify-center align-items-center">
-								<div className="d-flex gap-1">
-								<OnClickPressButton sign={-1} id={id} text={"-"}></OnClickPressButton>
-								<OnClickPressButton sign={1} id={id} text={"+"}></OnClickPressButton>
+								<div className="d-flex flex-col gap-1">
+									<div className="d-flex justify-between">
+										<div>Stock: </div>
+
+										<div>{amount}</div>
+									</div>
+									<div className="d-flex gap-1">
+										<OnClickPressButton sign={-1} id={id} text={"-"}></OnClickPressButton>
+										<OnClickPressButton sign={1} id={id} text={"+"}></OnClickPressButton>
+									</div>
+									{/* El stock normalmente no se muestra pero para ver cuando se llega al límite lo descomentaremos */}
+									<div className="d-flex justify-between">
+										<div>Uds: </div>
+
+										<div>{quantity}</div>
+									</div>
 								</div>
-								<CartRemoveButton productId={id} />
 							</div>
 						</div>
 					);

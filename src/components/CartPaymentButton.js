@@ -7,8 +7,8 @@ const CartPaymentButton = () => {
 	const { cart, setCart, displayCart, setDisplayCart, compraHecha, setCompraHecha } = useCartContext();
 
     const total = cart.reduce((acc, {quantity, price})=>{
-        let total = acc + (parseInt(quantity) * parseFloat(price));
-        return (Math.round(total*100))/100
+        let total = acc + (parseInt(quantity) * parseFloat(price).toFixed(2));
+        return ((Math.round(total*100))/100)
     },0);
 
 	const completePayment = async () => {
@@ -31,17 +31,17 @@ const CartPaymentButton = () => {
 	};
 
 	return (
-		<div className="w-11/12 mx-2 border-t-2 d-flex justify-between">
+		<div className=" ms-2 border-t-2 d-flex justify-between w-auto">
             <div className="d-flex justify-center align-items-center">
                 <h5 className="mx-2 translate-y-0.5">Total:</h5>
-                <div>{total}€</div>
+                <div>{parseFloat(total).toFixed(2)}€</div>
             </div>
             <button
 			className={`btn m-3 ${cart.length === 0 || typeof cart[0] === "string" ? "btn-secondary" : "btn-warning"} `}
 			disabled={cart.length === 0 || typeof cart[0] === "string"}
 			onClick={completePayment}
 		>
-			Pagar
+			<div>Pagar</div>
 		</button>
         </div>
 	);

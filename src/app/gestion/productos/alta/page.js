@@ -3,71 +3,96 @@
 "use client";
 
 import DynamicForm from "@/components/DynamicForm";
+import { getCategories } from "@/lib/services/categorias";
 import { saveProductToDatabase, uploadProductImgFs } from "@/lib/services/productos";
 import { useSession } from "next-auth/react";
 import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const productFields = [
-	{
-		name: "name",
-		label: "Nombre",
-		type: "text",
-		validators: [
-			{ key: "required", value: true, errmssg: "El nombre es obligatorio" },
-			{ key: "maxLength", value: 256, errmssg: "Máximo 256 caracteres" },
-		],
-	},
-	{
-		name: "price",
-		label: "Precio",
-		type: "number",
-		validators: [
-			{ key: "required", value: true, errmssg: "El precio es obligatorio" },
-			{ key: "min", value: 1, errmssg: "El precio debe ser mayor a 0" },
-		],
-	},
-	{
-		name: "amount",
-		label: "Stock",
-		type: "number",
-		validators: [
-			{ key: "required", value: true, errmssg: "El stock es obligatorio" },
-			{ key: "min", value: 0, errmssg: "El stock no puede ser negativo" },
-		],
-	},
-	{
-		name: "description",
-		label: "Descripción",
-		type: "text",
-		validators: [
-			{ key: "required", value: true, errmssg: "La descripción es obligatoria" },
-			{ key: "maxLength", value: 1024, errmssg: "Máximo 1024 caracteres" },
-		],
-	},
-	{
-		name: "imgFile",
-		label: "Imagen",
-		type: "file",
-		validators: [
-			{ key: "required", value: true, errmssg: "La imagen es obligatoria" },
-			{
-				key: "validate",
-				value: (fileList) => {
-					if (!fileList.length) return "La imagen es obligatoria";
-					const file = fileList[0];
-					if (!file.type.startsWith("image/")) return "Sólo se permiten imágenes.";
-					if (file.size > 1024 * 1024 * 6) return "La imagen no puede pesar más de 6 MB.";
-					return true;
-				},
-				errmssg: "",
-			},
-		],
-	},
-];
 
 const ProductManagementForm = () => {
+	const [categories, setCategories] = useState([]);
 
-	const submitForm = async (data) => {
+	useEffect(() => {
+        // Obtener categorías desde la API
+        const fetchCategories = async () => {
+            const categoriesList = await getCategories();
+            setCategories(categoriesList);
+        };
+        fetchCategories();
+    }, []);
+
+	const productFields = [
+        {
+            name: "name",
+            label: "Nombre",
+            type: "text",
+            validators: [
+                { key: "required", value: true, errmssg: "El nombre es obligatorio" },
+                { key: "maxLength", value: 256, errmssg: "Máximo 256 caracteres" },
+            ],
+        },
+        {
+            name: "price",
+            label: "Precio",
+            type: "number",
+            validators: [
+                { key: "required", value: true, errmssg: "El precio es obligatorio" },
+                { key: "min", value: 1, errmssg: "El precio debe ser mayor a 0" },
+            ],
+        },
+        {
+            name: "amount",
+            label: "Stock",
+            type: "number",
+            validators: [
+                { key: "required", value: true, errmssg: "El stock es obligatorio" },
+                { key: "min", value: 0, errmssg: "El stock no puede ser negativo" },
+            ],
+        },
+        {
+            name: "description",
+            label: "Descripción",
+            type: "text",
+            validators: [
+                { key: "required", value: true, errmssg: "La descripción es obligatoria" },
+                { key: "maxLength", value: 1024, errmssg: "Máximo 1024 caracteres" },
+            ],
+        },
+		{
+			name: "categoryId",
+			label: "Categoría",
+			type: "select",
+			options: categories.map(category => ({
+				value: category.id, 
+				text: category.nombre.charAt(0).toUpperCase() + category.nombre.slice(1) 
+			})),
+			validators: [
+				{ key: "required", value: true, errmssg: "La categoría es obligatoria" },
+			],
+        },
+        {
+            name: "imgFile",
+            label: "Imagen",
+            type: "file",
+            validators: [
+                { key: "required", value: true, errmssg: "La imagen es obligatoria" },
+                {
+                    key: "validate",
+                    value: (fileList) => {
+                        if (!fileList.length) return "La imagen es obligatoria";
+                        const file = fileList[0];
+                        if (!file.type.startsWith("image/")) return "Sólo se permiten imágenes.";
+                        if (file.size > 1024 * 1024 * 6) return "La imagen no puede pesar más de 6 MB.";
+                        return true;
+                    },
+                    errmssg: "",
+                },
+            ],
+        },
+    ];
+
+	const submitForm = async (data, reset) => {
 		try {
 			// Enviar datos del producto a la API (sin imagen)
 			const productId = await saveProductToDatabase(data); // Este data es un objeto normal con la informacion del formulario
@@ -87,14 +112,15 @@ const ProductManagementForm = () => {
 			});
 
 			console.log("Producto guardado con imagen:", productId, imageUrl);
+			reset();
 		} catch (error) {
 			console.error("Error:", error);
 		}
 	};
 
 	return (
-		<div>
-			<div>Datos del producto</div>
+		<div className="w-full d-flex flex-col justify-center align-items-center">
+			<h5>Datos del producto</h5>
 			<DynamicForm attributes={productFields} submitFunction={submitForm}/>
 		</div>
 	);
@@ -105,7 +131,7 @@ const ProductManagement = () => {
 	const {id} = useParams();
 	const router = useRouter();
 
-	if (session.rol === "common-user") router.push("/");
+	if (session?.rol === "common-user") router.push("/");
 
 	return( 
 	

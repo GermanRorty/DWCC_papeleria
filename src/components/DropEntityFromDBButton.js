@@ -11,7 +11,7 @@ const DropEntityFromDBButton = ({entityId, entityClass}) => {
     }
 
     const redirectHome = () => {
-        router.push("/productos");
+        router.push("/Productos");
     }
 
     return(

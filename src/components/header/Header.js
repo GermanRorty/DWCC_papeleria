@@ -20,13 +20,13 @@ const Header = () => {
 			<div className="d-flex justify-center">
 				<Image
 					src={"/images/inkubooklogo.png"}
-					width={1000}
-					height={1000}
+					width={1300}
+					height={1300}
 					alt={"Company logo"}
-					className={`${scrollingY ? "h-0 w-0" : "h-44 w-44"} transition-all ease-linear duration-100`}
+					className={`${scrollingY ? "h-0 w-0" : "h-52 w-52"} transition-all ease-linear duration-100`}
 				/>
 			</div>
-			<nav className={`flex flex-row gap-5 justify-between pt-2 pb-0 px-3 w-11/12 ${scrollingY?"translate-y-3":"-translate-y-4"}`} >
+			<nav className={`flex flex-row gap-5 justify-between pt-2 pb-0 px-3 w-11/12 ${scrollingY?"translate-y-3":"-translate-y-14"}`} >
 				<NavBarSSR />
 				<NavBarCSR />
 			</nav>

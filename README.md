@@ -45,19 +45,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
 
 
-- usar useRouter por ejemplo para redirigir tras el logout
-- Revisar el rerenderizado al añadir algo al carrito
-- Que al hacer login, se cargue el carrito desde la bbdd
-- Hacer el navbar a trzos: uno SSR y otro CSR(el del carrito y posiblemente la busqueda)
-- Meter un hook useMem que evite el renderizado de la tienda todo el rato? o un useref que dependa del setProductList.Asi solo se re-renderiza si cambia el stock, etc
-- Redirigir a productos/inicio tras login
 - Usar los Componentes iconos para los paneles de gestion
-- Usar una foto de edna moda en los formularios dinámicos
 - Revisar que el carro localstorage se actualiza bien al inicar sesión. Ahora si funciona, pero al recargar la pagina con la sesion abiertta sigue resumandolo al carro
 - Los empleados pueden editar los productois pero no a los usuarios -> eso solo el admin
 - Añadir el 404
 - Revisar que alc errar la ventana y abrir con la cuenta abierta, también se suman sin limite la cesta
 - ñadir mensajes de confirmación de edición y crecaión
-- Añadir una imagen o icono segun rol en el formulario de usuarios
--Añadir botón de añadir usuario
-- Incluir el precio total en el carrito
+- Falta edicion de foto en editar producto
+- Añadir en el formulario de producto el añadir la categoría
+- Hacer un sweet alert pequeñito en el margen inferior de la pantalla, en absolute, que no interrumpa la ux pero notifique el éxito o fracaso del envío de formularios
+// TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case

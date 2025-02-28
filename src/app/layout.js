@@ -1,5 +1,3 @@
-// Template de elementos comunes a todas las páginas (navba, header, footer, etc )
-
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css"; // Importa el CSS de Bootstrap globalmente
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -9,30 +7,35 @@ import Header from "@/components/header/Header";
 import { ScrollYContextProvider, useScrollYContext } from "./context/ScrollYContext";
 import ScrollerWrapper from "@/components/ScrollerWrapper";
 import { ProductsListContextProvider } from "./context/ProductsContext";
-
-// TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case
+import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer";
 
 export const metadata = {
 	title: "Inkubook: Papeleria App",
-	description: "Created by German Rodriguez marty",
+	description: "Created by German Rodriguez Marty",
 };
 
 const RootLayout = ({ children }) => {
 	return (
-		<html lang="en">
+		<html lang="en" className="h-100">
 			<ScrollYContextProvider>
-				<body className="h-screen">
+				<body className="d-flex flex-column min-vh-100">
 					<AuthProvider>
 						<CartContextProvider>
 							<ProductsListContextProvider>
 								<Header />
 								<ScrollerWrapper>
-									<Breadcrumbs />
-									{children}
+									{/* Contenedor principal que crece dinámicamente sin empujar el footer */}
+									<div className="d-flex flex-column flex-grow-1 p-4">
+										<Breadcrumbs />
+										{children}
+									</div>
+									<Footer />
 								</ScrollerWrapper>
 							</ProductsListContextProvider>
 						</CartContextProvider>
 					</AuthProvider>
+					<ToastContainer />
 				</body>
 			</ScrollYContextProvider>
 		</html>
