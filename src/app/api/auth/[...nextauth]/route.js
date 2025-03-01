@@ -56,4 +56,3 @@ const handler = NextAuth({
 
 export { handler as GET, handler as POST };
 
-// TODO: entender bien todo esto: los callbacks, la exportacion como GET y POST, el uso de jwt y de session

@@ -13,7 +13,6 @@ const CartAddButton = ({ product, quantity = 1 }) => {
 
 	// Un boton que nos permite tanto sumar de uno en uno desde el catalogo, como incrementar/disminuir muchas unidades de golpe
 	const addToCart = (article, units) => {
-		// TODO: hacer que el stock no se guarde en el carrito, sino que se checkee vs la bbdd
 		const foundArticle = cart.find((item) => item.id === article.id);
 		if (foundArticle) {
 			setCart((prevCart) => prevCart.map((a) => (a.id === article.id ? { ...a, quantity: a.quantity + units } : a)));

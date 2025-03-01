@@ -42,7 +42,11 @@ export const CartContextProvider = ({ children }) => {
 
 				{cart.map(({ id, name, quantity, imageUrl, price, amount }) => {
 					if (typeof cart[0] === "string") {
-						return <div className={`d-flex flex-row justify-center align-items-center text-center w-full ${scrollingY?"my-72":"my-56"}`}>{cart[0]}</div>;
+						return (
+							<div key={cart[0]} className={`d-flex flex-row justify-center align-items-center text-center w-full ${scrollingY ? "my-72" : "my-56"}`}>
+								{cart[0]}
+							</div>
+						);
 					}
 
 					return (

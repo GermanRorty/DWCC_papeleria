@@ -6,7 +6,7 @@
       "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
       "price": 1.8,
-      "amount": 23,
+      "amount": 22,
       "categoryId": 5
     },
     {
@@ -33,13 +33,13 @@
       "name": "Lápiz Profesional",
       "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
       "price": 0.6,
-      "amount": 288,
+      "amount": 285,
       "categoryId": 9
     },
     {
       "name": "Mochila de Viaje",
       "price": 34,
-      "amount": 236,
+      "amount": 233,
       "description": "Mochila con múltiples compartimentos, ideal para viajar.",
       "id": "l_cyiMG",
       "imageUrl": "l_cyiMG.jpg",
@@ -48,7 +48,7 @@
     {
       "name": "Estuche Portátil",
       "price": 12.5,
-      "amount": 57,
+      "amount": 56,
       "description": "Estuche compacta para lápices y bolígrafos.",
       "id": "s3Hf7Zp",
       "imageUrl": "estuche.jpg",
@@ -66,7 +66,7 @@
     {
       "name": "Cuaderno Diario",
       "price": 5,
-      "amount": 95,
+      "amount": 94,
       "description": "Cuaderno de 150 hojas, ideal para apuntes diarios.",
       "id": "b7Zg5U",
       "imageUrl": "diario.jpg",
@@ -75,7 +75,7 @@
     {
       "name": "Estilográfica de Lujo",
       "price": 15.5,
-      "amount": 30,
+      "amount": 29,
       "description": "Estilográfica premium, ideal para escritura elegante.",
       "id": "r9Fv8Kw",
       "imageUrl": "estilografica.jpg",
@@ -250,12 +250,20 @@
       "id": 2
     },
     {
-      "name": "Xesus",
-      "email": "xesus@mail.com",
-      "psswrd": "123",
+      "name": "German",
+      "email": "german@mail.com",
+      "psswrd": "123abc",
       "rol": "common-user",
       "cart": [],
       "id": 3
+    },
+    {
+      "name": "María",
+      "email": "maria@mail.com",
+      "psswrd": "renaido",
+      "rol": "admin",
+      "cart": [],
+      "id": 4
     }
   ]
 }

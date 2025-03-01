@@ -41,17 +41,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Icons: https://www.svgrepo.com/collection/office-material-5/
 - Icons : https://www.svgrepo.com/svg/287632/agenda
 
-## TODO
-- Revisar la validación y el manejo de errores, cuales se lanzan como console.log, cuáles le llegan al usuario
-
-
-- Usar los Componentes iconos para los paneles de gestion
-- Revisar que el carro localstorage se actualiza bien al inicar sesión. Ahora si funciona, pero al recargar la pagina con la sesion abiertta sigue resumandolo al carro
-- Los empleados pueden editar los productois pero no a los usuarios -> eso solo el admin
-- Añadir el 404
-- Revisar que alc errar la ventana y abrir con la cuenta abierta, también se suman sin limite la cesta
-- ñadir mensajes de confirmación de edición y crecaión
-- Falta edicion de foto en editar producto
-- Añadir en el formulario de producto el añadir la categoría
-- Hacer un sweet alert pequeñito en el margen inferior de la pantalla, en absolute, que no interrumpa la ux pero notifique el éxito o fracaso del envío de formularios
-// TODO: Ideas para el icono de perfil: https://www.svgrepo.com/svg/109446/pencil-box https://www.svgrepo.com/svg/260522/pencil-case-school-material  https://www.svgrepo.com/svg/269236/pencil-case https://www.svgrepo.com/svg/455419/pencil-ruler https://www.svgrepo.com/svg/456626/pencil-paper https://www.svgrepo.com/svg/455416/pencil-case

@@ -26,7 +26,6 @@ const CartPaymentButton = () => {
 			setDisplayCart(false);
 		}, 1300);
 
-		// TODO: añadir gif de carga para por ejemplo el proceso de compra del carrito
 	};
 
 	return (
