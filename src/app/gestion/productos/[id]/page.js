@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Slide } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 
 const productFields = [
 	{

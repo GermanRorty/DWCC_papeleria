@@ -6,7 +6,7 @@
       "name": "Bolígrafo",
       "description": "Bolígrafo de tinta azul, cómodo agarre, ideal para escritura diaria.",
       "price": 1.8,
-      "amount": 28,
+      "amount": 23,
       "categoryId": 5
     },
     {
@@ -33,13 +33,13 @@
       "name": "Lápiz Profesional",
       "description": "Lápiz de grafito, de alta calidad, ideal para dibujo técnico y escritura.",
       "price": 0.6,
-      "amount": 290,
+      "amount": 288,
       "categoryId": 9
     },
     {
       "name": "Mochila de Viaje",
       "price": 34,
-      "amount": 239,
+      "amount": 236,
       "description": "Mochila con múltiples compartimentos, ideal para viajar.",
       "id": "l_cyiMG",
       "imageUrl": "l_cyiMG.jpg",
@@ -48,7 +48,7 @@
     {
       "name": "Estuche Portátil",
       "price": 12.5,
-      "amount": 60,
+      "amount": 57,
       "description": "Estuche compacta para lápices y bolígrafos.",
       "id": "s3Hf7Zp",
       "imageUrl": "estuche.jpg",
@@ -66,7 +66,7 @@
     {
       "name": "Cuaderno Diario",
       "price": 5,
-      "amount": 96,
+      "amount": 95,
       "description": "Cuaderno de 150 hojas, ideal para apuntes diarios.",
       "id": "b7Zg5U",
       "imageUrl": "diario.jpg",
@@ -102,7 +102,7 @@
     {
       "name": "Set de Pintura Acrílica",
       "price": 25,
-      "amount": 50,
+      "amount": 45,
       "description": "Set completo de pintura acrílica con 12 colores.",
       "id": "a4Jf8B",
       "imageUrl": "pintura.jpg",
@@ -120,7 +120,7 @@
     {
       "name": "Mochila Escolar",
       "price": 20,
-      "amount": 110,
+      "amount": 109,
       "description": "Mochila escolar, con espacio para laptop y libros.",
       "id": "k6Bf8Y",
       "imageUrl": "mochilaescolar.jpg",
@@ -147,7 +147,7 @@
     {
       "name": "Lápiz de Carbón",
       "price": 0.8,
-      "amount": 75,
+      "amount": 74,
       "description": "Lápiz de carbón para dibujo artístico.",
       "id": "x6Tz1A",
       "imageUrl": "lapizcarbon.jpg",
@@ -156,7 +156,7 @@
     {
       "name": "Porta Retratos",
       "price": 6,
-      "amount": 30,
+      "amount": 28,
       "description": "Porta retratos de madera, con espacio para fotos 10x15.",
       "id": "u5Jk4N",
       "imageUrl": "portaretratos.jpg",
@@ -165,7 +165,7 @@
     {
       "name": "Lápiz de Colores Pastel",
       "price": 3,
-      "amount": 80,
+      "amount": 79,
       "description": "Lápices de colores pastel, para arte y dibujo.",
       "id": "v2Lm9T",
       "imageUrl": "lapizpastel.jpg",
@@ -174,7 +174,7 @@
     {
       "name": "Rotuladores Fluorescentes",
       "price": 3.5,
-      "amount": 51,
+      "amount": 46,
       "description": "Set de rotuladores fluorescentes para subrayar.",
       "id": "s1Pv8K",
       "imageUrl": "rotuladoresfluo.jpg",
@@ -183,56 +183,11 @@
     {
       "name": "Taza de Cerámica",
       "price": 7.5,
-      "amount": 30,
+      "amount": 28,
       "description": "Taza de cerámica, ideal para bebidas calientes.",
       "id": "f9Sg2P",
       "imageUrl": "taza.jpg",
       "categoryId": 3
-    },
-    {
-      "name": "wrgag",
-      "price": "234.32",
-      "amount": "3233",
-      "description": "argagrgrr",
-      "categoryId": "8",
-      "id": "fgyRSlI",
-      "imageUrl": "fgyRSlI.jpg"
-    },
-    {
-      "name": "wrgag",
-      "price": "234.32",
-      "amount": "3233",
-      "description": "argagrgrr",
-      "categoryId": "8",
-      "id": "fFrAh-3",
-      "imageUrl": "fFrAh-3.jpg"
-    },
-    {
-      "name": "dbsee",
-      "price": "63.3",
-      "amount": "654",
-      "description": "awgawg",
-      "categoryId": "8",
-      "id": "lZRa889",
-      "imageUrl": "lZRa889.jpg"
-    },
-    {
-      "name": "awqtqw",
-      "price": "3.32",
-      "amount": "665465",
-      "description": "awgwqeg",
-      "categoryId": "7",
-      "id": "XAGCC3j",
-      "imageUrl": "XAGCC3j.png"
-    },
-    {
-      "name": "aweawgw",
-      "price": "3.25",
-      "amount": "632",
-      "description": "ethwerht",
-      "categoryId": "8",
-      "id": "ljlF-Sp",
-      "imageUrl": "ljlF-Sp.png"
     }
   ],
   "categorias": [
@@ -287,60 +242,20 @@
       "psswrd": "renaido"
     },
     {
-      "id": 2,
       "name": "User",
       "email": "user@mail.com",
+      "psswrd": "123abc",
       "rol": "common-user",
       "cart": [],
-      "psswrd": "123"
+      "id": 2
     },
     {
-      "name": "Ana",
-      "email": "ana@mail.com",
-      "psswrd": "1234",
-      "rol": "common-user",
-      "cart": [],
-      "id": 4
-    },
-    {
-      "name": "Nadia",
-      "email": "nadia@mail.com",
-      "psswrd": "1234rfd",
-      "rol": "common-user",
-      "cart": [],
-      "id": 5
-    },
-    {
-      "name": "Nadia",
-      "email": "nadia@mail.com",
-      "psswrd": "123rfg",
-      "rol": "common-user",
-      "cart": [],
-      "id": 6
-    },
-    {
-      "name": "Marta",
-      "email": "marta@mail.com",
-      "psswrd": "1234",
-      "rol": "common-user",
-      "cart": [],
-      "id": 7
-    },
-    {
-      "name": "María",
-      "email": "adminmaria@mail.com",
-      "psswrd": "1234",
-      "rol": "admin",
-      "cart": [],
-      "id": 8
-    },
-    {
-      "name": "Xesús",
+      "name": "Xesus",
       "email": "xesus@mail.com",
-      "psswrd": "1234",
+      "psswrd": "123",
       "rol": "common-user",
       "cart": [],
-      "id": 9
+      "id": 3
     }
   ]
 }

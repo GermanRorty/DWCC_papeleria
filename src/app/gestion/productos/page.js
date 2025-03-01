@@ -5,8 +5,10 @@ import { useProductsListContext } from "@/app/context/ProductsContext";
 import CartAddButton from "@/components/CartAddButton";
 import Filters from "@/components/Filters";
 import Lapiz from "@/components/iconos/Lapiz";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 
 const FilteredProductsContext = createContext();
@@ -102,6 +104,12 @@ const ProductosLayout = () => {
 	const { productsList, setProductsList } = useProductsListContext();
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [filterApplied, setFilterApplied] = useState(false);
+	const{data: session, status} = useSession();
+	const router = useRouter();
+
+		if(session?.user?.rol==="common-user"){
+			router.push("/")
+		}
 
 	useEffect(() => {
 		if (!filterApplied) {

@@ -8,7 +8,7 @@ import { addNewUser, editUser, getUser } from "@/lib/services/users";
 import { useSession } from "next-auth/react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Slide } from "react-toastify";
+import { Slide, toast } from "react-toastify";
 
 const userFields = [
 	{

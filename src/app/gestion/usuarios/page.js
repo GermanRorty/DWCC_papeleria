@@ -3,8 +3,10 @@
 "use client";
 
 import { getAllUsers } from "@/lib/services/users";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const AddUserButton = () => {
@@ -44,6 +46,13 @@ const UsersGrid = ({ users }) => {
 
 const UsersLayout = () => {
 	const [usersList, setUsersList] = useState([]);
+	const{data: session, status} = useSession();
+	const router = useRouter();
+
+	if(session?.user?.rol==="common-user"){
+		router.push("/")
+	}
+
 
 	useEffect(() => {
 		const fetchUsers = async () => {

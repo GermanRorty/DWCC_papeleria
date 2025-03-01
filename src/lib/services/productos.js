@@ -34,10 +34,13 @@ export async function deleteProducto(id) {
 			},
 		});
 		if (!response.ok) throw new Error(`Error al borrar el artículo ID=${id}`);
+		// Si la respuesta es 204 No Content, no intentamos parsear JSON
+		if (response.status === 204) return;
+
 		return await response.json();
 	} catch (error) {
 		console.log(`Error en función deleteProducto(${id})`, error);
-		return [];
+		throw new Error(`Error al borrar el producto. Inténtelo de nuevo más tarde`);
 	}
 }
 
@@ -89,18 +92,17 @@ export async function uploadProductImgFs(productId, imgFile) {
 		return imageUrl;
 	} catch (error) {
 		console.error("Error en uploadProductImgFs:", error);
-		throw error; 
+		throw error;
 	}
 }
-
 
 export async function editProductFromDatabase(data) {
 	// // DEBUG:
 	// console.log("Data: ", data);
 	const { imgFile, ...dataNoImgFile } = data;
 	try {
-		// DEBUG: 
-		console.log("ID para edit desde",dataNoImgFile.id);
+		// DEBUG:
+		console.log("ID para edit desde", dataNoImgFile.id);
 		const productResponse = await fetch(`${API_URL_PRODUCT}/${dataNoImgFile.id}`, {
 			method: "PATCH",
 			headers: { "Content-Type": "application/json" },
@@ -113,10 +115,10 @@ export async function editProductFromDatabase(data) {
 
 		const editedProduct = await productResponse.json();
 
-		return editedProduct.id; 
+		return editedProduct.id;
 	} catch (error) {
 		console.error("Error en editProductFromDatabase:", error);
-		throw error; 
+		throw error;
 	}
 }
 
@@ -142,6 +144,6 @@ export async function updateProductImgFs(productId, imgFile) {
 		return imageUrl;
 	} catch (error) {
 		console.error("Error en updateProductImgFs:", error);
-		throw error; 
+		throw error;
 	}
 }

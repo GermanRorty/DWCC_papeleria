@@ -72,6 +72,7 @@ const UserManagementForm = () => {
 				transition: Slide,
 				icon: false,
 			});
+			router.push("/Gestion/Usuarios")
 		} catch (error) {
 			toast.error("No se ha podido dar de alta el usuario", {
 				autoClose: 4000,

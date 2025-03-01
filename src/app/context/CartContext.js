@@ -41,11 +41,12 @@ export const CartContextProvider = ({ children }) => {
 				<CartDeleteButton />
 
 				{cart.map(({ id, name, quantity, imageUrl, price, amount }) => {
-					if (typeof cart[0] === "string") return cart[0];
+					if (typeof cart[0] === "string") {
+						return <div className={`d-flex flex-row justify-center align-items-center text-center w-full ${scrollingY?"my-72":"my-56"}`}>{cart[0]}</div>;
+					}
 
 					return (
 						<div key={id} className="m-3 d-flex justify-between position-relative">
-
 							<div className="d-flex flex-col justify-center align-items-center">
 								<div className="d-flex justify-center align-items-center gap-4">
 									<Image src={`/images/products/${imageUrl}`} width={100} height={100} alt={"Picture for article" + { name }} />
@@ -74,7 +75,6 @@ export const CartContextProvider = ({ children }) => {
 								</div>
 							</div>
 							<CartRemoveButton productId={id} />
-
 						</div>
 					);
 				})}

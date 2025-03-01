@@ -27,14 +27,14 @@ const CartPaymentButton = () => {
 		}, 1300);
 
 		// TODO: añadir gif de carga para por ejemplo el proceso de compra del carrito
-		// TODO : Tienen que acualizarse los productos de la galeria (el stock)
 	};
 
 	return (
 		<div className=" ms-2 border-t-2 d-flex justify-between w-auto">
             <div className="d-flex justify-center align-items-center">
                 <h5 className="mx-2 translate-y-0.5">Total:</h5>
-                <div>{parseFloat(total).toFixed(2)}€</div>
+                {(!isNaN((total).toFixed(2)))&&<div>{parseFloat(total).toFixed(2)}€</div>}
+                {(isNaN((total).toFixed(2)))&&<div>{0.00}€</div>}
             </div>
             <button
 			className={`btn m-3 ${cart.length === 0 || typeof cart[0] === "string" ? "btn-secondary" : "btn-warning"} `}
